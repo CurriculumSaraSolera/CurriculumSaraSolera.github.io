@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Sara Solera Moreno</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0d0f14;
+      --surface: #12161e;
+      --elev: #171b25;
+      --text: #e7e9ee;
+      --muted: #aab0bb;
+      --primary: #9C89B8;
+      --secondary: #F0A6CA;
+      --accent: #EFC3E6;
+      --ring: rgba(240,166,202,.35);
+      --radius-xl: 22px; --radius-lg: 16px; --radius-md: 12px;
+      --shadow: 0 20px 40px rgba(0,0,0,.35);
+      --transition: all .35s cubic-bezier(.2,.6,.2,1);
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--text); background: radial-gradient(900px 500px at 10% -10%, rgba(156,137,184,.15), transparent 60%), radial-gradient(900px 500px at 110% 10%, rgba(240,166,202,.12), transparent 60%), var(--bg);}
+
+    .barra_lateral{position:fixed; inset:0 auto 0 0; width:84px; display:flex; flex-direction:column; align-items:center; gap:14px; padding:18px 10px; background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border-right:1px solid rgba(255,255,255,.08); backdrop-filter: blur(8px); z-index:50}
+    .logo{width:42px; height:42px; border-radius:12px; background: linear-gradient(135deg, var(--primary), var(--secondary)); box-shadow:0 14px 22px rgba(240,166,202,.25)}
+    .enlace_navegacion{width:100%; display:flex; align-items:center; justify-content:center; height:48px; border-radius:12px; color:var(--text); text-decoration:none; opacity:.85; transition:var(--transition)}
+    .enlace_navegacion:hover,.enlace_navegacion.active{background:rgba(255,255,255,.08); opacity:1}
+
+    .enlace_navegacion.home i { color: #F0A6CA }
+    .enlace_navegacion.skills i { color: #F0A6CA }
+    .enlace_navegacion.experience i { color: #F0A6CA }
+    .enlace_navegacion.education i { color: #F0A6CA }
+    .enlace_navegacion.more i { color: #F0A6CA }
+
+    main{margin-left:84px}
+
+    .hero{min-height:88vh; display:grid; grid-template-columns: 1.2fr 1fr; gap:30px; align-items:center; padding:60px 28px 28px; max-width:1200px; margin:0 auto}
+    .tarjeta_hero{background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius-xl); padding:26px; box-shadow: var(--shadow)}
+    .titulo{font-family:'DM Serif Display',serif; font-size:3rem; letter-spacing:.2px; margin:0 0 6px}
+    .subtitulo{color:var(--muted); margin:0 0 16px; font-size:1.15rem}
+    .descripcion{color:var(--text); opacity:.9}
+    .llamado_accion{display:flex; gap:12px; margin-top:22px}
+    .boton{border:0; border-radius:14px; padding:12px 16px; background:rgba(255,255,255,.08); color:var(--text); cursor:pointer; transition:var(--transition); text-decoration:none;}
+    .boton.primary{background: linear-gradient(135deg, var(--primary), var(--secondary)); box-shadow:0 14px 26px rgba(240,166,202,.25)}
+    .boton:hover{transform: translateY(-2px);}
+
+    .foto_hero{position:relative}
+    .avatar{width:100%; max-width:340px; aspect-ratio:1; border-radius:24px; object-fit:cover; border:4px solid rgba(255,255,255,.18); box-shadow: 0 24px 60px rgba(156,137,184,.25)}
+    .insignia_flotante{position:absolute; bottom:-10px; right:-10px; background:var(--surface); border:1px solid rgba(255,255,255,.1); padding:10px 12px; border-radius:12px; display:flex; align-items:center; gap:8px; box-shadow: var(--shadow)}
+
+    section{padding:22px 28px; max-width:1200px; margin:0 auto}
+    .cuadricula{display:grid; gap:18px}
+
+    .tarjeta{background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius-lg); padding:20px; box-shadow: var(--shadow)}
+    .titulo_seccion{font-family:'DM Serif Display',serif; margin:0 0 14px; font-size:1.6rem}
+
+    .habilidades{grid-template-columns: repeat(2, 1fr)}
+    .habilidad{margin-bottom:12px}
+    .cabecera_habilidad{display:flex; justify-content:space-between; font-weight:700}
+    .barra{height:10px; background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden; margin-top:8px}
+    .barra > span{display:block; height:100%; width:0; border-radius:999px; background: linear-gradient(90deg, var(--primary), var(--secondary))}
+
+    .cronologia{position:relative}
+    .cronologia::before{content:""; position:absolute; left:10px; top:0; bottom:0; width:2px; background:rgba(255,255,255,.12)}
+    .elemento_cronologia{position:relative; padding-left:34px; margin-bottom:16px}
+    .elemento_cronologia::before{content:""; position:absolute; left:3px; top:6px; width:14px; height:14px; border-radius:50%; background:var(--secondary); box-shadow:0 0 0 6px var(--ring)}
+    .tarjeta_cronologia{background: rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:12px 14px}
+    .titulo_cronologia{font-weight:800}
+    .subtitulo_cronologia{color:var(--muted); margin-bottom:6px}
+
+    .conjunto_chips{display:flex; flex-wrap:wrap; gap:10px}
+    .chip{padding:10px 12px; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); font-weight:600}
+
+    .volver_arriba{position:fixed; right:18px; bottom:18px; border-radius:999px; width:48px; height:48px; display:grid; place-items:center; background: linear-gradient(135deg, var(--primary), var(--secondary)); border:0; color:#fff; cursor:pointer; box-shadow:0 14px 26px rgba(240,166,202,.25); opacity:0; visibility:hidden; transform: translateY(10px); transition:var(--transition); z-index:49}
+    .volver_arriba.show{opacity:1; visibility:visible; transform: translateY(0)}
+
+    @media (max-width: 992px){
+      .hero{grid-template-columns: 1fr; text-align:center}
+      .foto_hero{order:-1; display:flex; justify-content:center}
+      .insignia_flotante{right:50%; transform: translateX(50%)}
+      main{margin-left:0}
+      .barra_lateral{position:static; width:100%; flex-direction:row; justify-content:space-around; padding:10px; background:none; border:none; backdrop-filter:none}
+      .enlace_navegacion{height:40px; width:40px}
+    }
+    @media (max-width: 768px){
+      .hero{min-height:60vh; padding:40px 20px}
+      .titulo{font-size:2.5rem}
+      .subtitulo{font-size:1rem}
+      .descripcion{font-size:0.9rem}
+      section{padding:20px 20px}
+      .tarjeta{padding:16px}
+      .titulo_seccion{font-size:1.4rem}
+      .habilidades{grid-template-columns:1fr}
+      .cuadricula{grid-template-columns:1fr !important}
+      .conjunto_chips{justify-content:center}
+      .chip{font-size:0.9rem}
+      .llamado_accion{flex-direction:column; align-items:center}
+      .boton{width:100%; max-width:200px}
+    }
+    @media (max-width: 480px){
+      .hero{min-height:50vh; padding:30px 15px}
+      .titulo{font-size:2rem}
+      .subtitulo{font-size:0.9rem}
+      .descripcion{font-size:0.8rem}
+      section{padding:15px 15px}
+      .tarjeta{padding:12px}
+      .titulo_seccion{font-size:1.2rem}
+      .tarjeta_cronologia{padding:10px 12px}
+      .titulo_cronologia{font-size:0.9rem}
+      .subtitulo_cronologia{font-size:0.8rem}
+      .chip{font-size:0.8rem; padding:8px 10px}
+      .boton{padding:10px 14px; font-size:0.9rem}
+      .insignia_flotante{bottom:-5px; right:-5px; padding:8px 10px; font-size:0.8rem}
+      .avatar{max-width:250px}
+    }
+  </style>
+</head>
+<body>
+  <aside class="barra_lateral">
+    <div class="logo"></div>
+    <a class="enlace_navegacion active home" href="#inicio" title="Inicio"><i class="fa-solid fa-house"></i></a>
+    <a class="enlace_navegacion skills" href="#habilidades" title="Habilidades"><i class="fa-solid fa-tools"></i></a>
+    <a class="enlace_navegacion experience" href="#experiencia" title="Experiencia"><i class="fa-solid fa-briefcase"></i></a>
+    <a class="enlace_navegacion education" href="#educacion" title="Educación"><i class="fa-solid fa-graduation-cap"></i></a>
+    <a class="enlace_navegacion more" href="#extras" title="Más"><i class="fa-solid fa-star"></i></a>
+  </aside>
+
+  <main>
+    <header id="inicio" class="hero">
+      <div class="tarjeta_hero">
+        <h1 class="titulo">Sara Solera Moreno</h1>
+        <p class="subtitulo">Técnica en Sistemas Microinformáticos y Redes</p>
+        <p class="descripcion">Especializada en mantenimiento y reparación de equipos, sistemas Windows y Linux, y fundamentos de ciberseguridad. Experiencia en soporte IT y atención al cliente. Aprendizaje continuo y orientación a resultados.</p>
+        <div class="llamado_accion">
+          <a class="boton primary" href="mailto:sarasolera16@gmail.com"><i class="fa-solid fa-envelope me-1"></i> Contactar</a>
+          <a class="boton" href="tel:+34644766673"><i class="fa-solid fa-phone me-1"></i> Llamar</a>
+        </div>
+      </div>
+      <div class="foto_hero">
+        <img class="avatar" src="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103" alt="Sara Solera" />
+        <div class="insignia_flotante"><i class="fa-solid fa-location-dot"></i> 28901</div>
+      </div>
+    </header>
+
+    <section id="habilidades">
+      <div class="cuadricula habilidades">
+        <div class="tarjeta">
+          <h3 class="titulo_seccion"><i class="fa-solid fa-tools me-2"></i> Habilidades Técnicas</h3>
+          <div class="habilidad">
+            <div class="cabecera_habilidad"><span>Windows</span><span>90%</span></div>
+            <div class="barra"><span style="--w:90%"></span></div>
+          </div>
+          <div class="habilidad">
+            <div class="cabecera_habilidad"><span>Linux</span><span>80%</span></div>
+            <div class="barra"><span style="--w:80%"></span></div>
+          </div>
+          <div class="habilidad">
+            <div class="cabecera_habilidad"><span>Montaje de equipos</span><span>95%</span></div>
+            <div class="barra"><span style="--w:95%"></span></div>
+          </div>
+          <div class="habilidad">
+            <div class="cabecera_habilidad"><span>Reparación</span><span>85%</span></div>
+            <div class="barra"><span style="--w:85%"></span></div>
+          </div>
+          <div class="habilidad">
+            <div class="cabecera_habilidad"><span>Ciberseguridad</span><span>70%</span></div>
+            <div class="barra"><span style="--w:70%"></span></div>
+          </div>
+        </div>
+        <div class="tarjeta">
+          <h3 class="titulo_seccion"><i class="fa-solid fa-people-group me-2"></i> Habilidades Blandas</h3>
+          <div class="conjunto_chips">
+            <span class="chip"><i class="fa-solid fa-handshake me-1"></i> Trabajo en equipo</span>
+            <span class="chip"><i class="fa-solid fa-comments me-1"></i> Comunicación</span>
+            <span class="chip"><i class="fa-solid fa-user-check me-1"></i> Atención al cliente</span>
+            <span class="chip"><i class="fa-solid fa-list-check me-1"></i> Organización</span>
+            <span class="chip"><i class="fa-solid fa-lightbulb me-1"></i> Proactividad</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="tarjeta">
+        <h3 class="titulo_seccion"><i class="fa-solid fa-briefcase me-2"></i> Experiencia</h3>
+        <div class="cronologia">
+          <div class="elemento_cronologia">
+            <div class="tarjeta_cronologia">
+              <div class="titulo_cronologia">Becaria Departamento IT</div>
+              <div class="subtitulo_cronologia">CA Auto Bank · Abr 2025 — Jun 2025</div>
+              <ul class="m-0">
+                <li>Mantenimiento físico de servidores y racks</li>
+                <li>Montaje y reparación de equipos</li>
+              </ul>
+            </div>
+          </div>
+          <div class="elemento_cronologia">
+            <div class="tarjeta_cronologia">
+              <div class="titulo_cronologia">Dependienta</div>
+              <div class="subtitulo_cronologia">Confecciones Rosi · Sep 2023 — Feb 2024</div>
+              <div>Atención al cliente, gestión de inventario y ventas.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="educacion">
+      <div class="tarjeta">
+        <h3 class="titulo_seccion"><i class="fa-solid fa-graduation-cap me-2"></i> Educación</h3>
+        <div class="cronologia">
+          <div class="elemento_cronologia">
+            <div class="tarjeta_cronologia">
+              <div class="titulo_cronologia">Sistemas Microinformáticos y Redes</div>
+              <div class="subtitulo_cronologia">IES Laguna de Joaztel · 2023 — 2024</div>
+            </div>
+          </div>
+          <div class="elemento_cronologia">
+            <div class="tarjeta_cronologia">
+              <div class="titulo_cronologia">ESO</div>
+              <div class="subtitulo_cronologia">IES La Senda · 2019 — 2023</div>
+            </div>
+          </div>
+          <div class="elemento_cronologia">
+            <div class="tarjeta_cronologia">
+              <div class="titulo_cronologia">Inglés B2</div>
+              <div class="subtitulo_cronologia">Escuela Oficial de Idiomas · 2024 — Actualidad</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="extras">
+      <div class="cuadricula" style="grid-template-columns: 1.1fr .9fr;">
+        <div class="tarjeta">
+          <h3 class="titulo_seccion"><i class="fa-solid fa-star me-2"></i> Cursos</h3>
+          <div class="cronologia">
+            <div class="elemento_cronologia">
+              <div class="tarjeta_cronologia">
+                <div class="titulo_cronologia">Introducción a la ciberseguridad</div>
+                <div class="subtitulo_cronologia">Cisco · 6 horas</div>
+                <a class="boton" href="https://docs.google.com/document/d/10LEy7cCV6pVZ0N8p5QT-lFgEAo150TgROagx0sXv6jg/edit?usp=sharing" target="_blank" style="display: inline-block;"><i class="fa-solid fa-image me-1"></i> Ver certificado</a>
+              </div>
+            </div>
+            <div class="elemento_cronologia">
+              <div class="tarjeta_cronologia">
+                <div class="titulo_cronologia">Defensa de la red</div>
+                <div class="subtitulo_cronologia">Cisco · 27 horas</div>
+                <a class="boton" href="https://docs.google.com/document/d/1nS34rqmekppsG4lif4hdNhZUpu1t-nfMAK3fheIxZaA/edit?usp=sharing" target="_blank" style="display: inline-block;"><i class="fa-solid fa-image me-1"></i> Ver certificado</a>
+              </div>
+            </div>
+            <div class="elemento_cronologia">
+              <div class="tarjeta_cronologia">
+                <div class="titulo_cronologia">Inteligencia Emocional y comunicación</div>
+                <div class="subtitulo_cronologia">ATLAS · 5 horas</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tarjeta">
+          <h3 class="titulo_seccion"><i class="fa-solid fa-star me-2"></i> Aficiones y Cualidades</h3>
+          <div class="conjunto_chips">
+            <span class="chip"><i class="fa-solid fa-book me-1"></i> Leer</span>
+            <span class="chip"><i class="fa-solid fa-plane me-1"></i> Viajar</span>
+            <span class="chip"><i class="fa-solid fa-film me-1"></i> Cine</span>
+            <span class="chip"><i class="fa-solid fa-pen me-1"></i> Escribir</span>
+            <span class="chip"><i class="fa-solid fa-ear-listen me-1"></i> Escucha proactiva</span>
+            <span class="chip"><i class="fa-solid fa-user-check me-1"></i> Respeto</span>
+            <span class="chip"><i class="fa-solid fa-heart me-1"></i> Sinceridad</span>
+            <span class="chip"><i class="fa-solid fa-gem me-1"></i> Perfeccionista</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer style="text-align:center; color:var(--muted); padding:30px 0 46px">© 2025 Sara Solera Moreno</footer>
+  </main>
+
+  <div id="modal" style="position:fixed; inset:0; background:rgba(0,0,0,.7); display:none; align-items:center; justify-content:center; z-index:60">
+    <div style="background:var(--elev); border:1px solid rgba(255,255,255,.12); border-radius:16px; max-width:920px; width:92vw; overflow:hidden; box-shadow:var(--shadow)">
+      <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 12px; border-bottom:1px solid rgba(255,255,255,.1)">
+        <strong>Certificado</strong>
+        <button id="closeModal" class="boton">Cerrar</button>
+      </div>
+      <img id="modalImg" src="" alt="Certificado" style="display:block; width:100%; height:auto" />
+    </div>
+  </div>
+
+  <button id="toTop" class="volver_arriba" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script>
+    const secciones = [...document.querySelectorAll('main section, header.hero')];
+    const enlaces = document.querySelectorAll('.enlace_navegacion');
+    const mapa_navegacion = new Map([
+      ['#inicio', document.getElementById('inicio')],
+      ['#habilidades', document.getElementById('habilidades')],
+      ['#experiencia', document.getElementById('experiencia')],
+      ['#educacion', document.getElementById('educacion')],
+      ['#extras', document.getElementById('extras')],
+    ]);
+
+    function actualizar_navegacion_activa(){
+      let actual = '#inicio';
+      for (const [hash, el] of mapa_navegacion.entries()){
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 120) actual = hash;
+      }
+      enlaces.forEach(a=>a.classList.toggle('active', a.getAttribute('href')===actual));
+    }
+    window.addEventListener('scroll', actualizar_navegacion_activa); actualizar_navegacion_activa();
+
+    enlaces.forEach(a=>a.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const objetivo = document.querySelector(a.getAttribute('href'));
+      if (!objetivo) return;
+      window.scrollTo({top: objetivo.offsetTop - 10, behavior:'smooth'});
+    }));
+
+    const barras = document.querySelectorAll('.barra > span');
+    const observador_interseccion = new IntersectionObserver((entradas)=>{
+      entradas.forEach(en=>{
+        if(en.isIntersecting){ en.target.style.width = getComputedStyle(en.target).getPropertyValue('--w'); }
+      })
+    }, { threshold:.4 });
+    barras.forEach(b=>observador_interseccion.observe(b));
+
+    const modal = document.getElementById('modal');
+    const imagen_modal = document.getElementById('modalImg');
+    document.querySelectorAll('[data-img]').forEach(boton=>{
+      boton.addEventListener('click', ()=>{ imagen_modal.src = boton.dataset.img; modal.style.display='flex'; })
+    });
+    document.getElementById('closeModal').addEventListener('click', ()=>{ modal.style.display='none'; imagen_modal.src=''; });
+    modal.addEventListener('click', (e)=>{ if(e.target===modal){ modal.style.display='none'; imagen_modal.src=''; } });
+
+    const volver_arriba = document.getElementById('toTop');
+    window.addEventListener('scroll', ()=>{
+      if(window.scrollY > 300) volver_arriba.classList.add('show'); else volver_arriba.classList.remove('show');
+    });
+    volver_arriba.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+  </script>
+</body>
+</html>
