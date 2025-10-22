@@ -6,30 +6,98 @@
 <title>CV — Sara Solera Moreno | ASIR</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" />
+  <style media="print">
+    @page {
+      margin: 0.5in;
+      size: A4;
+    }
+    body {
+      background: white !important;
+      color: black !important;
+      font-family: 'Inter', sans-serif;
+    }
+    .barra_lateral, .particulas, .volver_arriba, .themeToggle, #modal, #contactModal {
+      display: none !important;
+    }
+    main {
+      margin: 0 !important;
+    }
+    .hero {
+      grid-template-columns: 1fr !important;
+      text-align: center !important;
+      padding: 20px !important;
+      min-height: auto !important;
+    }
+    .foto_hero {
+      order: -1 !important;
+      margin-bottom: 20px !important;
+    }
+    .avatar {
+      max-width: 200px !important;
+      border: 2px solid #ccc !important;
+    }
+    .titulo {
+      font-size: 2rem !important;
+      color: black !important;
+    }
+    .subtitulo {
+      color: #666 !important;
+    }
+    .descripcion {
+      color: #333 !important;
+    }
+    .tarjeta {
+      background: white !important;
+      border: 1px solid #ddd !important;
+      box-shadow: none !important;
+      break-inside: avoid;
+    }
+    .progreso-bar, .barra > span {
+      background: #007bff !important;
+    }
+    .chip {
+      background: #f8f9fa !important;
+      border: 1px solid #dee2e6 !important;
+      color: #495057 !important;
+    }
+    .contacto-item {
+      background: #f8f9fa !important;
+      border: 1px solid #dee2e6 !important;
+      color: #495057 !important;
+    }
+    footer {
+      color: #666 !important;
+      padding: 20px 0 !important;
+    }
+  </style>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <style>
     :root {
-      --bg: #0a0e17;
-      --surface: #101826;
-      --elev: #1a2235;
-      --text: #f0f4ff;
-      --muted: #b8c2e0;
-      --primary: #8a6cff;
-      --secondary: #ff6b9d;
-      --accent: #6bd4ff;
-      --ring: rgba(138, 108, 255, 0.35);
-      --radius-xl: 24px; 
-      --radius-lg: 18px; 
+      --bg: #fef7f0;
+      --surface: #ffffff;
+      --elev: #f8f4f0;
+      --text: #2d1b69;
+      --muted: #8b7ba8;
+      --primary: #e91e63;
+      --secondary: #9c27b0;
+      --accent: #ff9800;
+      --ring: rgba(233, 30, 99, 0.35);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
       --radius-md: 14px;
-      --shadow: 0 25px 50px rgba(0,0,0,.4);
-      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-      --glow: 0 0 30px rgba(138, 108, 255, 0.5);
+      --shadow: 0 25px 50px rgba(0,0,0,.1);
+      --transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      --glow: 0 0 30px rgba(233, 30, 99, 0.25);
       --text-xl: 1.5rem;
       --text-lg: 1.25rem;
       --text-md: 1.125rem;
       --text-sm: 1rem;
       --text-xs: 0.875rem;
+      --spot-x: 50vw;
+      --spot-y: 50vh;
+      --spot-size: 600px;
+      --spot-intensity: 0.15;
     }
     
     * { 
@@ -46,15 +114,17 @@
     body {
       font-family: 'Inter', system-ui, sans-serif;
       color: var(--text);
-      background: radial-gradient(1200px 600px at 10% -10%, rgba(138, 108, 255, 0.2), transparent 60%), 
-                  radial-gradient(1200px 600px at 110% 10%, rgba(255, 107, 157, 0.15), transparent 60%), 
-                  var(--bg);
+      background:
+        radial-gradient(var(--spot-size) var(--spot-size) at var(--spot-x) var(--spot-y), rgba(255,255,255,var(--spot-intensity)), transparent 60%),
+        radial-gradient(1200px 600px at 10% -10%, rgba(233, 30, 99, 0.08), transparent 60%),
+        radial-gradient(1200px 600px at 110% 10%, rgba(156, 39, 176, 0.06), transparent 60%),
+        var(--bg);
       overflow-x: hidden;
       line-height: 1.7;
       font-size: var(--text-md);
+      transition: background 300ms ease;
     }
 
-    /* Navegación mejorada */
     .barra_lateral {
       position: fixed;
       inset: 0 auto 0 0;
@@ -64,11 +134,12 @@
       align-items: center;
       gap: 18px;
       padding: 22px 12px;
-      background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.04));
-      border-right: 1px solid rgba(255,255,255,.1);
+      background: var(--elev);
+      border-right: 1px solid rgba(0,0,0,.1);
       backdrop-filter: blur(16px);
       z-index: 50;
       transition: var(--transition);
+      box-shadow: 2px 0 10px rgba(0,0,0,.1);
     }
     
     .logo {
@@ -103,10 +174,11 @@
     
     .enlace_navegacion:hover,
     .enlace_navegacion.active {
-      background: rgba(255,255,255,.12);
+      background: var(--primary);
       opacity: 1;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(0,0,0,.2);
+      color: white;
     }
     
     .enlace_navegacion::after {
@@ -126,7 +198,6 @@
       height: 70%;
     }
     
-    /* Hero section mejorada */
     main {
       margin-left: 90px;
     }
@@ -176,14 +247,12 @@
       font-size: 4rem;
       letter-spacing: -1px;
       margin: 0 0 12px;
-      background: linear-gradient(135deg, var(--text), var(--muted), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--text);
       line-height: 1.1;
     }
     
     .subtitulo {
-      color: var(--secondary);
+      color: var(--text);
       margin: 0 0 24px;
       font-size: 1.6rem;
       font-weight: 600;
@@ -207,8 +276,8 @@
       border: 0;
       border-radius: 16px;
       padding: 16px 24px;
-      background: rgba(255,255,255,.1);
-      color: var(--text);
+      background: var(--primary);
+      color: white;
       cursor: pointer;
       transition: var(--transition);
       text-decoration: none;
@@ -219,6 +288,7 @@
       position: relative;
       overflow: hidden;
       font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,.2);
     }
     
     .boton::before {
@@ -239,6 +309,7 @@
     .boton.primary {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       box-shadow: var(--glow);
+      color: white;
     }
     
     .boton:hover {
@@ -269,24 +340,7 @@
       box-shadow: 0 0 40px rgba(138, 108, 255, 0.6);
     }
     
-    .insignia_flotante {
-      position: absolute;
-      bottom: -15px;
-      right: -15px;
-      background: var(--surface);
-      border: 1px solid rgba(255,255,255,.15);
-      padding: 14px 16px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-    
-    /* Secciones mejoradas */
+        
     section {
       padding: 40px 40px;
       max-width: 1300px;
@@ -349,7 +403,6 @@
       color: var(--secondary);
     }
     
-    /* Habilidades mejoradas */
     .habilidades {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -402,7 +455,6 @@
       100% { transform: translateX(100%); }
     }
     
-    /* Cronología mejorada */
     .cronologia {
       position: relative;
     }
@@ -469,7 +521,6 @@
       font-size: 1.1rem;
     }
     
-    /* Chips mejorados */
     .conjunto_chips {
       display: flex;
       flex-wrap: wrap;
@@ -494,8 +545,11 @@
       transform: translateY(-3px);
       box-shadow: 0 8px 16px rgba(0,0,0,.2);
     }
+
+    .hobbies-card .chip {
+      border: 2px solid var(--secondary);
+    }
     
-    /* Botón volver arriba mejorado */
     .volver_arriba {
       position: fixed;
       right: 24px;
@@ -528,8 +582,34 @@
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(138, 108, 255, 0.5);
     }
+
+    .theme-btn {
+      border: 0;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--elev);
+      color: var(--text);
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0,0,0,.2);
+      font-size: 18px;
+    }
+
+    .theme-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.3);
+    }
+
+    .theme-btn.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: var(--glow);
+    }
     
-    /* Nuevos elementos: Indicador de progreso ASIR */
     .progreso-asir {
       margin-top: 28px;
       padding: 20px;
@@ -552,7 +632,7 @@
     
     .progreso-porcentaje {
       font-weight: 800;
-      color: var(--primary);
+      color: var(--secondary);
       font-size: 1.3rem;
     }
     
@@ -565,13 +645,12 @@
     
     .progreso-fill {
       height: 100%;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: var(--secondary);
       border-radius: 999px;
       width: 0;
       transition: width 1.8s ease;
     }
     
-    /* Elementos 3D y efectos visuales */
     .particulas {
       position: fixed;
       top: 0;
@@ -587,12 +666,11 @@
       position: absolute;
       width: 5px;
       height: 5px;
-      background: var(--primary);
+      background: var(--secondary);
       border-radius: 50%;
-      opacity: .4;
+      opacity: .3;
     }
     
-    /* Efectos de texto */
     .texto-destacado {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
@@ -600,7 +678,6 @@
       font-weight: 800;
     }
     
-    /* Tarjetas de proyectos */
     .proyectos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -620,6 +697,46 @@
     .proyecto-card:hover {
       transform: translateY(-8px);
       box-shadow: var(--glow);
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: var(--elev);
+      color: var(--text);
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 10px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -100px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      border: 1px solid rgba(255,255,255,.2);
+      font-size: 0.9rem;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--elev) transparent transparent transparent;
     }
     
     .proyecto-imagen {
@@ -675,7 +792,6 @@
       font-weight: 600;
     }
     
-    /* Sección de contacto mejorada */
     .contacto-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -692,6 +808,7 @@
       transition: var(--transition);
       text-decoration: none;
       color: inherit;
+      min-width: 0;
     }
     
     .contacto-item:hover {
@@ -714,9 +831,11 @@
     
     .contacto-texto {
       font-size: 1.1rem;
+      min-width: 0;
+      width: 100%;
+      overflow: hidden;
     }
     
-    /* Responsividad mejorada */
     @media (max-width: 1200px) {
       .hero {
         grid-template-columns: 1fr;
@@ -730,11 +849,7 @@
         justify-content: center;
       }
       
-      .insignia_flotante {
-        right: 50%;
-        transform: translateX(50%);
-      }
-      
+            
       main {
         margin-left: 0;
       }
@@ -888,13 +1003,7 @@
         font-size: 1rem;
       }
       
-      .insignia_flotante {
-        bottom: -10px;
-        right: -10px;
-        padding: 12px 14px;
-        font-size: 1rem;
-      }
-      
+            
       .avatar {
         max-width: 320px;
       }
@@ -910,79 +1019,147 @@
       }
     }
     
+    @media (max-width: 576px) {
+      .hero {
+        min-height: 65vh;
+        padding: 45px 18px;
+      }
+
+      .titulo {
+        font-size: 2.3rem;
+      }
+
+      .subtitulo {
+        font-size: 1.15rem;
+      }
+
+      .descripcion {
+        font-size: 0.98rem;
+      }
+
+      section {
+        padding: 22px 18px;
+      }
+
+      .tarjeta {
+        padding: 20px;
+      }
+
+      .titulo_seccion {
+        font-size: 1.7rem;
+      }
+
+      .tarjeta_cronologia {
+        padding: 15px 17px;
+      }
+
+      .titulo_cronologia {
+        font-size: 1.15rem;
+      }
+
+      .subtitulo_cronologia {
+        font-size: 0.98rem;
+      }
+
+      .chip {
+        font-size: 0.92rem;
+        padding: 9px 13px;
+      }
+
+      .boton {
+        padding: 13px 19px;
+        font-size: 0.98rem;
+      }
+
+      .avatar {
+        max-width: 300px;
+      }
+
+      .barra_lateral {
+        padding: 11px;
+      }
+
+      .enlace_navegacion {
+        height: 42px;
+        width: 42px;
+        font-size: 17px;
+      }
+
+      .volver_arriba {
+        width: 50px;
+        height: 50px;
+        right: 16px;
+        bottom: 16px;
+      }
+    }
+
     @media (max-width: 480px) {
       .hero {
         min-height: 60vh;
         padding: 40px 15px;
       }
-      
+
       .titulo {
         font-size: 2.2rem;
       }
-      
+
       .subtitulo {
         font-size: 1.1rem;
       }
-      
+
       .descripcion {
         font-size: 0.95rem;
       }
-      
+
       section {
         padding: 20px 15px;
       }
-      
+
       .tarjeta {
         padding: 18px;
       }
-      
+
       .titulo_seccion {
         font-size: 1.6rem;
       }
-      
+
       .tarjeta_cronologia {
         padding: 14px 16px;
       }
-      
+
       .titulo_cronologia {
         font-size: 1.1rem;
       }
-      
+
       .subtitulo_cronologia {
         font-size: 0.95rem;
       }
-      
+
       .chip {
         font-size: 0.9rem;
         padding: 8px 12px;
       }
-      
+
       .boton {
         padding: 12px 18px;
         font-size: 0.95rem;
       }
-      
-      .insignia_flotante {
-        bottom: -8px;
-        right: -8px;
-        padding: 10px 12px;
-        font-size: 0.9rem;
-      }
-      
+
+
       .avatar {
         max-width: 280px;
       }
-      
+
       .barra_lateral {
         padding: 10px;
       }
-      
+
       .enlace_navegacion {
         height: 40px;
         width: 40px;
         font-size: 16px;
       }
-      
+
       .volver_arriba {
         width: 48px;
         height: 48px;
@@ -1009,7 +1186,7 @@
     <header id="inicio" class="hero">
       <div class="tarjeta_hero">
         <h1 class="titulo">Sara Solera Moreno</h1>
-        <p class="subtitulo">Futura Técnica Superior en <span class="texto-destacado">Administración de Sistemas Informáticos en Red</span></p>
+        <p class="subtitulo">Futura Técnica Superior en <span style="color:var(--text); -webkit-text-fill-color:unset; background:none;">Administración de Sistemas Informáticos en Red</span></p>
         <p class="descripcion">Actualmente cursando el Grado Superior de ASIR (iniciado en septiembre de 2025). Especializada en mantenimiento y reparación de equipos, sistemas Windows y Linux, y fundamentos de ciberseguridad. Experiencia en soporte IT y atención al cliente. Aprendizaje continuo y orientación a resultados.</p>
         
         <div class="progreso-asir">
@@ -1026,11 +1203,11 @@
           <a class="boton primary" href="mailto:sarasolera16@gmail.com"><i class="fa-solid fa-envelope me-1"></i> Contactar</a>
           <a class="boton" href="tel:+34644766673"><i class="fa-solid fa-phone me-1"></i> Llamar</a>
           <a class="boton" href="#proyectos"><i class="fa-solid fa-code me-1"></i> Ver Proyectos</a>
+
         </div>
       </div>
       <div class="foto_hero">
         <img class="avatar" src="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103" alt="Sara Solera" />
-        <div class="insignia_flotante"><i class="fa-solid fa-location-dot"></i> 28901</div>
       </div>
     </header>
 
@@ -1039,27 +1216,27 @@
         <div class="tarjeta">
           <h3 class="titulo_seccion"><i class="fa-solid fa-tools me-2"></i> Habilidades Técnicas</h3>
           <div class="habilidad">
-            <div class="cabecera_habilidad"><span>Windows</span><span>90%</span></div>
+            <div class="cabecera_habilidad"><span class="tooltip">Windows <span class="tooltiptext">Experiencia avanzada en administración de sistemas Windows, incluyendo configuración, troubleshooting y optimización.</span></span><span>90%</span></div>
             <div class="barra"><span style="--w:90%"></span></div>
           </div>
           <div class="habilidad">
-            <div class="cabecera_habilidad"><span>Linux</span><span>80%</span></div>
+            <div class="cabecera_habilidad"><span class="tooltip">Linux <span class="tooltiptext">Conocimientos sólidos en distribuciones Linux, comandos de terminal y administración de servidores.</span></span><span>80%</span></div>
             <div class="barra"><span style="--w:80%"></span></div>
           </div>
           <div class="habilidad">
-            <div class="cabecera_habilidad"><span>Montaje de equipos</span><span>95%</span></div>
+            <div class="cabecera_habilidad"><span class="tooltip">Montaje de equipos <span class="tooltiptext">Habilidades prácticas en ensamblaje, configuración y mantenimiento de hardware informático.</span></span><span>95%</span></div>
             <div class="barra"><span style="--w:95%"></span></div>
           </div>
           <div class="habilidad">
-            <div class="cabecera_habilidad"><span>Reparación</span><span>85%</span></div>
+            <div class="cabecera_habilidad"><span class="tooltip">Reparación <span class="tooltiptext">Diagnóstico y reparación de componentes hardware, incluyendo placas madre, discos duros y fuentes de alimentación.</span></span><span>85%</span></div>
             <div class="barra"><span style="--w:85%"></span></div>
           </div>
           <div class="habilidad">
-            <div class="cabecera_habilidad"><span>Ciberseguridad</span><span>70%</span></div>
+            <div class="cabecera_habilidad"><span class="tooltip">Ciberseguridad <span class="tooltiptext">Fundamentos en seguridad informática, incluyendo encriptación, firewalls y mejores prácticas de seguridad.</span></span><span>70%</span></div>
             <div class="barra"><span style="--w:70%"></span></div>
           </div>
           <div class="habilidad">
-            <div class="cabecera_habilidad"><span>Redes</span><span>75%</span></div>
+            <div class="cabecera_habilidad"><span class="tooltip">Redes <span class="tooltiptext">Configuración de redes locales, protocolos TCP/IP, switches y routers.</span></span><span>75%</span></div>
             <div class="barra"><span style="--w:75%"></span></div>
           </div>
         </div>
@@ -1144,7 +1321,7 @@
         <p>Proyectos realizados durante el Grado Superior de Administración de Sistemas Informáticos en Red:</p>
         
         <div class="proyectos-grid">
-          <div class="proyecto-card">
+          <div class="proyecto-card tooltip">
             <div class="proyecto-imagen">
               <i class="fa-solid fa-server"></i>
             </div>
@@ -1157,9 +1334,10 @@
                 <span class="tech-tag">SSH</span>
               </div>
             </div>
+            <span class="tooltiptext">Proyecto práctico de configuración de servidor Linux con servicios esenciales como SSH, FTP y firewall básico.</span>
           </div>
-          
-          <div class="proyecto-card">
+
+          <div class="proyecto-card tooltip">
             <div class="proyecto-imagen">
               <i class="fa-solid fa-shield-alt"></i>
             </div>
@@ -1172,9 +1350,10 @@
                 <span class="tech-tag">Nmap</span>
               </div>
             </div>
+            <span class="tooltiptext">Auditoría completa de red utilizando herramientas profesionales para identificar y mitigar vulnerabilidades de seguridad.</span>
           </div>
-          
-          <div class="proyecto-card">
+
+          <div class="proyecto-card tooltip">
             <div class="proyecto-imagen">
               <i class="fa-solid fa-network-wired"></i>
             </div>
@@ -1187,6 +1366,7 @@
                 <span class="tech-tag">VLAN</span>
               </div>
             </div>
+            <span class="tooltiptext">Diseño y configuración de red corporativa con segmentación VLAN y políticas de seguridad implementadas.</span>
           </div>
         </div>
       </div>
@@ -1219,7 +1399,7 @@
             </div>
           </div>
         </div>
-        <div class="tarjeta">
+        <div class="tarjeta hobbies-card">
           <h3 class="titulo_seccion"><i class="fa-solid fa-star me-2"></i> Aficiones y Cualidades</h3>
           <div class="conjunto_chips">
             <span class="chip"><i class="fa-solid fa-book me-1"></i> Leer</span>
@@ -1245,10 +1425,10 @@
             </div>
             <div class="contacto-texto">
               <div>Email</div>
-              <div class="subtitulo_cronologia">sarasolera16@gmail.com</div>
+              <div class="subtitulo_cronologia" style="display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; word-break:break-all;">sarasolera16@gmail.com</div>
             </div>
           </a>
-          
+
           <a href="tel:+34644766673" class="contacto-item">
             <div class="contacto-icono">
               <i class="fa-solid fa-phone"></i>
@@ -1258,7 +1438,7 @@
               <div class="subtitulo_cronologia">+34 644 766 673</div>
             </div>
           </a>
-          
+
           <div class="contacto-item">
             <div class="contacto-icono">
               <i class="fa-solid fa-location-dot"></i>
@@ -1268,7 +1448,7 @@
               <div class="subtitulo_cronologia">28901, Madrid</div>
             </div>
           </div>
-          
+
           <a href="https://linkedin.com/in/sara-solera" class="contacto-item">
             <div class="contacto-icono">
               <i class="fa-brands fa-linkedin-in"></i>
@@ -1279,6 +1459,7 @@
             </div>
           </a>
         </div>
+
       </div>
     </section>
 
@@ -1298,13 +1479,51 @@
     </div>
   </div>
 
+  <div id="contactModal" style="position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; z-index:60">
+    <div style="background:var(--elev); border:1px solid rgba(255,255,255,.15); border-radius:20px; max-width:500px; width:92vw; overflow:hidden; box-shadow:var(--shadow)">
+      <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.12)">
+        <strong style="font-size: 1.2rem;">Enviar Mensaje</strong>
+        <button id="closeContactModal" class="boton">Cerrar</button>
+      </div>
+      <form id="contactForm" style="padding:20px;">
+        <div style="margin-bottom:15px;">
+          <label for="name" style="display:block; margin-bottom:5px; color:var(--text);">Nombre</label>
+          <input type="text" id="name" name="name" required style="width:100%; padding:10px; border:1px solid rgba(255,255,255,.2); border-radius:8px; background:var(--surface); color:var(--text);">
+        </div>
+        <div style="margin-bottom:15px;">
+          <label for="email" style="display:block; margin-bottom:5px; color:var(--text);">Email</label>
+          <input type="email" id="email" name="email" required style="width:100%; padding:10px; border:1px solid rgba(255,255,255,.2); border-radius:8px; background:var(--surface); color:var(--text);">
+        </div>
+        <div style="margin-bottom:15px;">
+          <label for="message" style="display:block; margin-bottom:5px; color:var(--text);">Mensaje</label>
+          <textarea id="message" name="message" required style="width:100%; padding:10px; border:1px solid rgba(255,255,255,.2); border-radius:8px; background:var(--surface); color:var(--text); min-height:100px;"></textarea>
+        </div>
+        <button type="submit" class="boton primary" style="width:100%;"><i class="fa-solid fa-paper-plane me-1"></i> Enviar</button>
+      </form>
+    </div>
+  </div>
+
   <button id="toTop" class="volver_arriba" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+  <div id="themeButtons" style="position: fixed; top: 24px; right: 24px; z-index: 100; display: flex; gap: 12px;">
+    <button id="darkModeBtn" aria-label="Modo oscuro" class="theme-btn active"><i class="fa-solid fa-moon"></i></button>
+    <button id="lightModeBtn" aria-label="Modo claro" class="theme-btn"><i class="fa-solid fa-sun"></i></button>
+  </div>
 
   <script>
-    // Optimización de rendimiento con listeners pasivos
     const addPassive = (el, evt, handler) => el.addEventListener(evt, handler, { passive: true });
+    let shimmer = false;
+    const themes = {
+      base: {
+        '--bg': '#fef7f0', '--surface': '#ffffff','--elev': '#f8f4f0','--text': '#2d1b69','--muted': '#8b7ba8','--primary': '#e91e63','--secondary': '#9c27b0','--accent': '#ff9800','--ring': 'rgba(233,30,99,.35)','--glow': '0 0 30px rgba(233,30,99,.25)'
+      },
+      pastel: {
+        '--bg': '#f0f8ff', '--surface': '#ffffff','--elev': '#f5f5f5','--text': '#4a148c','--muted': '#ba68c8','--primary': '#ec407a','--secondary': '#ab47bc','--accent': '#ffb74d','--ring': 'rgba(236,64,122,.35)','--glow': '0 0 30px rgba(236,64,122,.25)'
+      },
+      sunset: {
+        '--bg': '#fff3e0', '--surface': '#ffffff','--elev': '#fce4ec','--text': '#880e4f','--muted': '#f06292','--primary': '#d81b60','--secondary': '#ba68c8','--accent': '#ff8a65','--ring': 'rgba(216,27,96,.35)','--glow': '0 0 30px rgba(216,27,96,.25)'
+      }
+    };
 
-    // Navegación activa con IntersectionObserver
     const enlaces = document.querySelectorAll('.enlace_navegacion');
     const secciones = [
       document.getElementById('inicio'),
@@ -1333,7 +1552,6 @@
 
     secciones.forEach(s => obsNav.observe(s));
 
-    // Navegación suave
     enlaces.forEach(a => a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
       if (!href || !href.startsWith('#')) return;
@@ -1343,7 +1561,6 @@
       history.replaceState(null, '', href);
     }));
 
-    // Animación de barras de habilidades
     const barras = document.querySelectorAll('.barra > span');
     const obsBarras = new IntersectionObserver((entries) => {
       entries.forEach(en => {
@@ -1356,7 +1573,6 @@
     }, { threshold: 0.4 });
     barras.forEach(b => obsBarras.observe(b));
 
-    // Modal para certificados
     const modal = document.getElementById('modal');
     const imagen_modal = document.getElementById('modalImg');
     document.querySelectorAll('[data-img]').forEach(boton => {
@@ -1378,7 +1594,6 @@
       }
     });
 
-    // Botón volver arriba
     const volver_arriba = document.getElementById('toTop');
     addPassive(window, 'scroll', () => {
       if (window.scrollY > 300) volver_arriba.classList.add('show');
@@ -1386,7 +1601,129 @@
     });
     volver_arriba.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Sistema de partículas optimizado
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    const lightModeBtn = document.getElementById('lightModeBtn');
+
+    // Single dark theme (pink primary, lighter purple)
+    const darkTheme = {
+      '--bg': '#0d1117',
+      '--surface': '#161b22',
+      '--elev': '#21262d',
+      '--text': '#f0f6fc',
+      '--muted': '#c9d1d9',
+      '--primary': '#e91e63',
+      '--secondary': '#ba68c8',
+      '--accent': '#ffb74d',
+      '--ring': 'rgba(233,30,99,.35)',
+      '--glow': '0 0 30px rgba(233,30,99,.45)'
+    };
+
+    // Single light theme (blue primary, purple secondary)
+    const lightTheme = {
+      '--bg': '#ffffff',
+      '--surface': '#f8f9fa',
+      '--elev': '#e9ecef',
+      '--text': '#212529',
+      '--muted': '#6c757d',
+      '--primary': '#007bff',
+      '--secondary': '#ba68c8',
+      '--accent': '#28a745',
+      '--ring': 'rgba(0,123,255,.35)',
+      '--glow': '0 0 30px rgba(0,123,255,.25)'
+    };
+
+    let isDarkMode = true; // Default to dark mode
+
+    // Apply dark theme by default on page load
+    Object.entries(darkTheme).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));
+    updateButtonStates();
+
+    darkModeBtn.addEventListener('click', () => {
+      isDarkMode = true;
+      Object.entries(darkTheme).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));
+      updateButtonStates();
+    });
+
+    lightModeBtn.addEventListener('click', () => {
+      isDarkMode = false;
+      Object.entries(lightTheme).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));
+      updateButtonStates();
+    });
+
+    function updateButtonStates() {
+      if (isDarkMode) {
+        darkModeBtn.classList.add('active');
+        lightModeBtn.classList.remove('active');
+      } else {
+        lightModeBtn.classList.add('active');
+        darkModeBtn.classList.remove('active');
+      }
+    }
+
+
+
+    const contactModal = document.getElementById('contactModal');
+    const contactForm = document.getElementById('contactForm');
+    document.getElementById('openContactForm').addEventListener('click', () => {
+      contactModal.style.display = 'flex';
+    });
+    document.getElementById('closeContactModal').addEventListener('click', () => {
+      contactModal.style.display = 'none';
+    });
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) {
+        contactModal.style.display = 'none';
+      }
+    });
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const message = formData.get('message');
+      const mailtoLink = `mailto:sarasolera16@gmail.com?subject=Mensaje de ${name}&body=Nombre: ${name}%0AEmail: ${email}%0A%0A${message}`;
+      window.location.href = mailtoLink;
+      contactModal.style.display = 'none';
+      contactForm.reset();
+    });
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.tarjeta, .proyecto-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(card);
+    });
+
+    let rafId;
+    const onMove = (x,y) => {
+      document.documentElement.style.setProperty('--spot-x', x+'px');
+      document.documentElement.style.setProperty('--spot-y', y+'px');
+    };
+    addPassive(window, 'mousemove', (e) => {
+      if (!shimmer) return;
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(()=>onMove(e.clientX, e.clientY));
+    });
+
+    addPassive(window, 'keydown', (e) => {
+      if (e.key.toLowerCase() === 's') {
+        shimmer = !shimmer;
+        document.documentElement.style.setProperty('--spot-intensity', shimmer ? '0.28' : '0');
+      }
+    });
+
     function crearParticulas() {
       const contenedor = document.getElementById('particulas');
       const cantidad = Math.max(16, Math.min(28, Math.round(window.innerWidth / 80)));
@@ -1413,7 +1750,6 @@
       contenedor.appendChild(frag);
     }
 
-    // Carga diferida de partículas
     if ('requestIdleCallback' in window) {
       requestIdleCallback(() => crearParticulas(), { timeout: 2000 });
     } else {
