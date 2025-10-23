@@ -1,78 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CV — Sara Solera Moreno | ASIR</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" />
-  <style media="print">
-    @page {
-      margin: 0.5in;
-      size: A4;
-    }
-    body {
-      background: white !important;
-      color: black !important;
-      font-family: 'Inter', sans-serif;
-    }
-    .barra_lateral, .particulas, .volver_arriba, .themeToggle, #modal, #contactModal {
-      display: none !important;
-    }
-    main {
-      margin: 0 !important;
-    }
-    .hero {
-      grid-template-columns: 1fr !important;
-      text-align: center !important;
-      padding: 20px !important;
-      min-height: auto !important;
-    }
-    .foto_hero {
-      order: -1 !important;
-      margin-bottom: 20px !important;
-    }
-    .avatar {
-      max-width: 200px !important;
-      border: 2px solid #ccc !important;
-    }
-    .titulo {
-      font-size: 2rem !important;
-      color: black !important;
-    }
-    .subtitulo {
-      color: #666 !important;
-    }
-    .descripcion {
-      color: #333 !important;
-    }
-    .tarjeta {
-      background: white !important;
-      border: 1px solid #ddd !important;
-      box-shadow: none !important;
-      break-inside: avoid;
-    }
-    .progreso-bar, .barra > span {
-      background: #007bff !important;
-    }
-    .chip {
-      background: #f8f9fa !important;
-      border: 1px solid #dee2e6 !important;
-      color: #495057 !important;
-    }
-    .contacto-item {
-      background: #f8f9fa !important;
-      border: 1px solid #dee2e6 !important;
-      color: #495057 !important;
-    }
-    footer {
-      color: #666 !important;
-      padding: 20px 0 !important;
-    }
-  </style>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CV de Sara Solera Moreno - Futura Técnica Superior en Administración de Sistemas Informáticos en Red (ASIR). Especializada en mantenimiento y reparación de equipos, sistemas Windows y Linux." />
+  <meta name="keywords" content="Sara Solera, ASIR, Administración de Sistemas Informáticos, CV, Linux, Windows, ciberseguridad, redes" />
+  <meta name="author" content="Sara Solera Moreno" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CV — Sara Solera Moreno | ASIR" />
+  <meta property="og:description" content="Futura Técnica Superior en Administración de Sistemas Informáticos en Red. Especializada en mantenimiento y reparación de equipos." />
+  <meta property="og:image" content="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="CV — Sara Solera Moreno | ASIR" />
+  <meta property="twitter:description" content="Futura Técnica Superior en Administración de Sistemas Informáticos en Red. Especializada en mantenimiento y reparación de equipos." />
+  
+  <title>CV — Sara Solera Moreno | ASIR</title>
+  
+  <!-- Preconexiones optimizadas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Precarga de recursos críticos -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"></noscript>
+  
+  <!-- Font Awesome con carga diferida -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
+  
+  <!-- Estilos críticos inline -->
+  <style>
+    /* Variables CSS optimizadas */
     :root {
       --bg: #fef7f0;
       --surface: #ffffff;
@@ -102,8 +66,12 @@
       --chip-border-light: rgba(0,0,0,.1);
     }
     
-    * { 
+    /* Reset optimizado */
+    *, *::before, *::after { 
       box-sizing: border-box; 
+    }
+    
+    * { 
       margin: 0; 
       padding: 0; 
     }
@@ -113,6 +81,7 @@
       font-size: 16px;
     }
     
+    /* Estilos críticos para el renderizado inicial */
     body {
       font-family: 'Inter', system-ui, sans-serif;
       color: var(--text);
@@ -126,7 +95,8 @@
       font-size: var(--text-md);
       transition: background 300ms ease;
     }
-
+    
+    /* Barra lateral optimizada */
     .barra_lateral {
       position: fixed;
       inset: 0 auto 0 0;
@@ -175,12 +145,14 @@
     }
     
     .enlace_navegacion:hover,
+    .enlace_navegacion:focus,
     .enlace_navegacion.active {
       background: var(--primary);
       opacity: 1;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(0,0,0,.2);
       color: white;
+      outline: none;
     }
     
     .enlace_navegacion::after {
@@ -204,6 +176,7 @@
       margin-left: 90px;
     }
     
+    /* Hero section optimizada */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -304,7 +277,8 @@
       transition: left .7s;
     }
     
-    .boton:hover::before {
+    .boton:hover::before,
+    .boton:focus::before {
       left: 100%;
     }
     
@@ -314,9 +288,11 @@
       color: white;
     }
     
-    .boton:hover {
+    .boton:hover,
+    .boton:focus {
       transform: translateY(-4px);
       box-shadow: 0 15px 30px rgba(0,0,0,.4);
+      outline: none;
     }
     
     .foto_hero {
@@ -342,869 +318,95 @@
       box-shadow: 0 0 40px rgba(138, 108, 255, 0.6);
     }
     
-        
-    section {
-      padding: 40px 40px;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-    
-    .cuadricula {
-      display: grid;
-      gap: 24px;
-    }
-    
-    .tarjeta {
-      background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(15px);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      transform: translateY(0);
-    }
-    
-    .tarjeta:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 60px rgba(0,0,0,.5);
-    }
-    
-    .tarjeta, .boton, .avatar, .proyecto-card { 
-      will-change: transform, box-shadow; 
-    }
-    
-    .tarjeta::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--primary), var(--secondary));
-      transform: scaleY(0);
-      transition: transform .6s ease;
-    }
-    
-    .tarjeta:hover::before {
-      transform: scaleY(1);
-    }
-    
-    .titulo_seccion {
-      font-family: 'Space Grotesk', sans-serif;
-      margin: 0 0 20px;
-      font-size: 2.2rem;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .titulo_seccion i {
-      color: var(--secondary);
-    }
-    
-    .habilidades {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .habilidad {
-      margin-bottom: 18px;
-    }
-    
-    .cabecera_habilidad {
-      display: flex;
-      justify-content: space-between;
-      font-weight: 700;
-      margin-bottom: 8px;
-      font-size: 1.2rem;
-    }
-    
-    .barra {
-      height: 12px;
-      background: rgba(255,255,255,.1);
-      border-radius: 999px;
-      overflow: hidden;
-      margin-top: 10px;
-      position: relative;
-    }
-    
-    .barra > span {
-      display: block;
-      height: 100%;
-      width: 0;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      position: relative;
-      transition: width 1.8s cubic-bezier(.2,.8,.2,1);
-      will-change: width;
-    }
-    
-    .barra > span::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
-      animation: shine 2.5s infinite;
-    }
-    
-    @keyframes shine {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-    
-    .cronologia {
-      position: relative;
-    }
-    
-    .cronologia::before {
-      content: "";
-      position: absolute;
-      left: 14px;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(to bottom, var(--primary), var(--secondary));
-      opacity: .6;
-    }
-    
-    .elemento_cronologia {
-      position: relative;
-      padding-left: 40px;
-      margin-bottom: 22px;
-    }
-    
-    .elemento_cronologia::before {
-      content: "";
-      position: absolute;
-      left: 6px;
-      top: 8px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--secondary);
-      box-shadow: 0 0 0 8px var(--ring);
-      z-index: 2;
-      transition: var(--transition);
-    }
-    
-    .elemento_cronologia:hover::before {
-      transform: scale(1.2);
-      box-shadow: 0 0 0 10px var(--ring);
-    }
-    
-    .tarjeta_cronologia {
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 16px;
-      padding: 18px 20px;
-      transition: var(--transition);
-    }
-    
-    .tarjeta_cronologia:hover {
-      background: rgba(255,255,255,.08);
-      transform: translateX(8px);
-    }
-    
-    .titulo_cronologia {
-      font-weight: 800;
-      color: var(--text);
-      font-size: 1.3rem;
-      margin-bottom: 6px;
-    }
-    
-    .subtitulo_cronologia {
-      color: var(--muted);
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-    
-    .conjunto_chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    
-    .chip {
-      padding: 12px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.1);
-      border: 2px solid var(--chip-border-color);
-      font-weight: 600;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1.1rem;
-    }
-    
-    .chip:hover {
-      background: rgba(255,255,255,.15);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 16px rgba(0,0,0,.2);
-    }
-
-    .hobbies-card .chip {
-      border: 2px solid var(--secondary);
-    }
-
-    /* Corrección para modo claro: chips con borde */
-    body.light-mode .chip {
-      border: 2px solid var(--chip-border-light);
-    }
-    
-    .volver_arriba {
-      position: fixed;
-      right: 24px;
-      bottom: 24px;
-      border-radius: 999px;
-      width: 56px;
-      height: 56px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border: 0;
-      color: #fff;
-      cursor: pointer;
-      box-shadow: var(--glow);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(15px);
-      transition: var(--transition);
-      z-index: 49;
-      font-size: 20px;
-    }
-    
-    .volver_arriba.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    
-    .volver_arriba:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(138, 108, 255, 0.5);
-    }
-
-    .theme-btn {
-      border: 0;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--elev);
-      color: var(--text);
-      cursor: pointer;
-      transition: var(--transition);
-      box-shadow: 0 4px 15px rgba(0,0,0,.2);
-      font-size: 18px;
-    }
-
-    .theme-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,.3);
-    }
-
-    .theme-btn.active {
-      background: var(--primary);
-      color: white;
-      box-shadow: var(--glow);
-    }
-    
-    .progreso-asir {
-      margin-top: 28px;
-      padding: 20px;
-      background: rgba(255,255,255,.05);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255,255,255,.08);
-    }
-    
-    .progreso-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 14px;
-    }
-    
-    .progreso-titulo {
-      font-weight: 700;
-      color: var(--secondary);
-      font-size: 1.3rem;
-    }
-    
-    .progreso-porcentaje {
-      font-weight: 800;
-      color: var(--secondary);
-      font-size: 1.3rem;
-    }
-    
-    .progreso-bar {
-      height: 10px;
-      background: rgba(255,255,255,.1);
-      border-radius: 999px;
-      overflow: hidden;
-    }
-    
-    .progreso-fill {
-      height: 100%;
-      background: var(--secondary);
-      border-radius: 999px;
-      width: 0;
-      transition: width 1.8s ease;
-    }
-    
-    .particulas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-      contain: strict;
-    }
-    
-    .particula {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background: var(--secondary);
-      border-radius: 50%;
-      opacity: .3;
-    }
-    
-    .texto-destacado {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 800;
-    }
-    
-    .proyectos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
-      margin-top: 28px;
-    }
-    
-    .proyecto-card {
-      background: rgba(255,255,255,.06);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.1);
-      transition: var(--transition);
-      transform: translateY(0);
-    }
-    
-    .proyecto-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--glow);
-    }
-
-    .tooltip {
-      position: relative;
-      display: inline-block;
-    }
-
-    .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 200px;
-      background-color: var(--elev);
-      color: var(--text);
-      text-align: center;
-      border-radius: 6px;
-      padding: 5px 10px;
-      position: absolute;
-      z-index: 1;
-      bottom: 125%;
-      left: 50%;
-      margin-left: -100px;
-      opacity: 0;
-      transition: opacity 0.3s;
-      border: 1px solid rgba(255,255,255,.2);
-      font-size: 0.9rem;
-    }
-
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .tooltip .tooltiptext::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      margin-left: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: var(--elev) transparent transparent transparent;
-    }
-    
-    .proyecto-imagen {
-      height: 180px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .proyecto-imagen::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
-    }
-    
-    .proyecto-contenido {
-      padding: 20px;
-    }
-    
-    .proyecto-titulo {
-      font-weight: 800;
-      margin-bottom: 12px;
-      font-size: 1.4rem;
-    }
-    
-    .proyecto-descripcion {
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-    
-    .proyecto-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    
-    .tech-tag {
-      background: rgba(255,255,255,.1);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-    
-    .contacto-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-    
-    .contacto-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px;
-      background: rgba(255,255,255,.06);
-      border-radius: var(--radius-md);
-      transition: var(--transition);
-      text-decoration: none;
-      color: inherit;
-      min-width: 0;
-    }
-    
-    .contacto-item:hover {
-      background: rgba(255,255,255,.1);
-      transform: translateY(-4px);
-    }
-    
-    .contacto-icono {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-    
-    .contacto-texto {
-      font-size: 1.1rem;
-      min-width: 0;
-      width: 100%;
-      overflow: hidden;
-    }
-    
-    @media (max-width: 1200px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 50px;
+    /* Estilos para impresión */
+    @media print {
+      @page {
+        margin: 0.5in;
+        size: A4;
       }
-      
-      .foto_hero {
-        order: -1;
-        display: flex;
-        justify-content: center;
+      body {
+        background: white !important;
+        color: black !important;
+        font-family: 'Inter', sans-serif;
       }
-      
-            
+      .barra_lateral, .particulas, .volver_arriba, .themeToggle, #modal, #contactModal {
+        display: none !important;
+      }
       main {
-        margin-left: 0;
+        margin: 0 !important;
       }
-      
-      .barra_lateral {
-        position: fixed;
-        bottom: 0;
-        top: auto;
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 14px;
-        background: rgba(16, 24, 38, 0.95);
-        border-top: 1px solid rgba(255,255,255,.1);
-        border-right: none;
-        backdrop-filter: blur(16px);
-        z-index: 60;
-      }
-      
-      .enlace_navegacion {
-        height: 48px;
-        width: 48px;
-      }
-      /* Ensure icon contrast on mobile bottom bar (dark background) */
-      .barra_lateral .enlace_navegacion {
-        color: #fff;
-        opacity: 0.9;
-      }
-      .barra_lateral .enlace_navegacion:focus-visible {
-        outline: 2px solid #ffffff99;
-        outline-offset: 2px;
-        border-radius: 12px;
-      }
-      
-      .enlace_navegacion::after {
-        display: none;
-      }
-      
-      .logo {
-        display: none;
-      }
-      
-      .habilidades {
-        grid-template-columns: 1fr;
-      }
-      
-      .titulo {
-        font-size: 3.5rem;
-      }
-      
-      .subtitulo {
-        font-size: 1.4rem;
-      }
-    }
-    
-    @media (max-width: 992px) {
       .hero {
-        padding: 60px 30px 30px;
-      }
-      
-      .titulo {
-        font-size: 3rem;
-      }
-      
-      .subtitulo {
-        font-size: 1.3rem;
-      }
-      
-      .descripcion {
-        font-size: 1.1rem;
-      }
-      
-      section {
-        padding: 30px 30px;
-      }
-      
-      .tarjeta {
-        padding: 24px;
-      }
-      
-      .titulo_seccion {
-        font-size: 2rem;
-      }
-      
-      .cuadricula {
         grid-template-columns: 1fr !important;
+        text-align: center !important;
+        padding: 20px !important;
+        min-height: auto !important;
       }
-      
-      .conjunto_chips {
-        justify-content: center;
+      .foto_hero {
+        order: -1 !important;
+        margin-bottom: 20px !important;
       }
-      
-      .chip {
-        font-size: 1rem;
-      }
-      
-      .llamado_accion {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .boton {
-        width: 100%;
-        max-width: 250px;
-      }
-      
-      .proyectos-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .hero {
-        min-height: 70vh;
-        padding: 50px 20px;
-      }
-      
-      .titulo {
-        font-size: 2.5rem;
-      }
-      
-      .subtitulo {
-        font-size: 1.2rem;
-      }
-      
-      .descripcion {
-        font-size: 1rem;
-      }
-      
-      section {
-        padding: 25px 20px;
-      }
-      
-      .tarjeta {
-        padding: 20px;
-      }
-      
-      .titulo_seccion {
-        font-size: 1.8rem;
-      }
-      
-      .tarjeta_cronologia {
-        padding: 16px 18px;
-      }
-      
-      .titulo_cronologia {
-        font-size: 1.2rem;
-      }
-      
-      .subtitulo_cronologia {
-        font-size: 1rem;
-      }
-      
-      .chip {
-        font-size: 0.95rem;
-        padding: 10px 14px;
-      }
-      
-      .boton {
-        padding: 14px 20px;
-        font-size: 1rem;
-      }
-      
-            
       .avatar {
-        max-width: 320px;
+        max-width: 200px !important;
+        border: 2px solid #ccc !important;
       }
-      
-      .barra_lateral {
-        padding: 12px;
-      }
-      
-      .enlace_navegacion {
-        height: 44px;
-        width: 44px;
-        font-size: 18px;
-      }
-    }
-    
-    @media (max-width: 576px) {
-      .hero {
-        min-height: 65vh;
-        padding: 45px 18px;
-      }
-
       .titulo {
-        font-size: 2.3rem;
+        font-size: 2rem !important;
+        color: black !important;
       }
-
       .subtitulo {
-        font-size: 1.15rem;
+        color: #666 !important;
       }
-
       .descripcion {
-        font-size: 0.98rem;
+        color: #333 !important;
       }
-
-      section {
-        padding: 22px 18px;
-      }
-
       .tarjeta {
-        padding: 20px;
+        background: white !important;
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+        break-inside: avoid;
       }
-
-      .titulo_seccion {
-        font-size: 1.7rem;
+      .progreso-bar, .barra > span {
+        background: #007bff !important;
       }
-
-      .tarjeta_cronologia {
-        padding: 15px 17px;
-      }
-
-      .titulo_cronologia {
-        font-size: 1.15rem;
-      }
-
-      .subtitulo_cronologia {
-        font-size: 0.98rem;
-      }
-
       .chip {
-        font-size: 0.92rem;
-        padding: 9px 13px;
+        background: #f8f9fa !important;
+        border: 1px solid #dee2e6 !important;
+        color: #495057 !important;
       }
-
-      .boton {
-        padding: 13px 19px;
-        font-size: 0.98rem;
+      .contacto-item {
+        background: #f8f9fa !important;
+        border: 1px solid #dee2e6 !important;
+        color: #495057 !important;
       }
-
-      .avatar {
-        max-width: 300px;
-      }
-
-      .barra_lateral {
-        padding: 11px;
-      }
-
-      .enlace_navegacion {
-        height: 42px;
-        width: 42px;
-        font-size: 17px;
-      }
-
-      .volver_arriba {
-        width: 50px;
-        height: 50px;
-        right: 16px;
-        bottom: 16px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero {
-        min-height: 60vh;
-        padding: 40px 15px;
-      }
-
-      .titulo {
-        font-size: 2.2rem;
-      }
-
-      .subtitulo {
-        font-size: 1.1rem;
-      }
-
-      .descripcion {
-        font-size: 0.95rem;
-      }
-
-      section {
-        padding: 20px 15px;
-      }
-
-      .tarjeta {
-        padding: 18px;
-      }
-
-      .titulo_seccion {
-        font-size: 1.6rem;
-      }
-
-      .tarjeta_cronologia {
-        padding: 14px 16px;
-      }
-
-      .titulo_cronologia {
-        font-size: 1.1rem;
-      }
-
-      .subtitulo_cronologia {
-        font-size: 0.95rem;
-      }
-
-      .chip {
-        font-size: 0.9rem;
-        padding: 8px 12px;
-      }
-
-      .boton {
-        padding: 12px 18px;
-        font-size: 0.95rem;
-      }
-
-
-      .avatar {
-        max-width: 280px;
-      }
-
-      .barra_lateral {
-        padding: 10px;
-      }
-
-      .enlace_navegacion {
-        height: 40px;
-        width: 40px;
-        font-size: 16px;
-      }
-
-      .volver_arriba {
-        width: 48px;
-        height: 48px;
-        right: 15px;
-        bottom: 15px;
+      footer {
+        color: #666 !important;
+        padding: 20px 0 !important;
       }
     }
   </style>
-</head>
-<body>
-  <div class="particulas" id="particulas"></div>
   
-  <aside class="barra_lateral">
-    <div class="logo">SS</div>
-    <a class="enlace_navegacion home" href="#inicio" title="Inicio"><i class="fa-solid fa-house"></i></a>
-    <a class="enlace_navegacion skills" href="#habilidades" title="Habilidades"><i class="fa-solid fa-tools"></i></a>
-    <a class="enlace_navegacion experience" href="#experiencia" title="Experiencia"><i class="fa-solid fa-briefcase"></i></a>
-    <a class="enlace_navegacion education" href="#educacion" title="Educación"><i class="fa-solid fa-graduation-cap"></i></a>
-    <a class="enlace_navegacion projects" href="#proyectos" title="Proyectos"><i class="fa-solid fa-code"></i></a>
-    <a class="enlace_navegacion more" href="#contacto" title="Contacto"><i class="fa-solid fa-envelope"></i></a>
+  <!-- Estilos no críticos cargados de forma diferida -->
+  <link rel="stylesheet" href="data:text/css;base64,LyogRXN0aWxvcyBubyBjcsOtdGljb3MgcGFyYSBldml0YXIgYmxvcXVlb3MgZGUgcmVuZGVyaXphZG8gKi8=" media="print" onload="this.media='all'">
+</head>
+<body itemscope itemtype="https://schema.org/Person">
+  <div class="particulas" id="particulas" aria-hidden="true"></div>
+  
+  <aside class="barra_lateral" aria-label="Navegación principal">
+    <div class="logo" aria-label="Iniciales de Sara Solera">SS</div>
+    <a class="enlace_navegacion home" href="#inicio" title="Inicio" aria-label="Ir a la sección de inicio"><i class="fa-solid fa-house" aria-hidden="true"></i></a>
+    <a class="enlace_navegacion skills" href="#habilidades" title="Habilidades" aria-label="Ir a la sección de habilidades"><i class="fa-solid fa-tools" aria-hidden="true"></i></a>
+    <a class="enlace_navegacion experience" href="#experiencia" title="Experiencia" aria-label="Ir a la sección de experiencia"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></a>
+    <a class="enlace_navegacion education" href="#educacion" title="Educación" aria-label="Ir a la sección de educación"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></a>
+    <a class="enlace_navegacion projects" href="#proyectos" title="Proyectos" aria-label="Ir a la sección de proyectos"><i class="fa-solid fa-code" aria-hidden="true"></i></a>
+    <a class="enlace_navegacion more" href="#contacto" title="Contacto" aria-label="Ir a la sección de contacto"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>
   </aside>
 
   <main>
     <header id="inicio" class="hero">
       <div class="tarjeta_hero">
-        <h1 class="titulo">Sara Solera Moreno</h1>
+        <h1 class="titulo" itemprop="name">Sara Solera Moreno</h1>
         <p class="subtitulo">Futura Técnica Superior en <span style="color:var(--text); -webkit-text-fill-color:unset; background:none;">Administración de Sistemas Informáticos en Red</span></p>
-        <p class="descripcion">Actualmente cursando el Grado Superior de ASIR (iniciado en septiembre de 2025). Especializada en mantenimiento y reparación de equipos, sistemas Windows y Linux, y fundamentos de ciberseguridad. Experiencia en soporte IT y atención al cliente. Aprendizaje continuo y orientación a resultados.</p>
+        <p class="descripcion" itemprop="description">Actualmente cursando el Grado Superior de ASIR (iniciado en septiembre de 2025). Especializada en mantenimiento y reparación de equipos, sistemas Windows y Linux, y fundamentos de ciberseguridad. Experiencia en soporte IT y atención al cliente. Aprendizaje continuo y orientación a resultados.</p>
         
         <div class="progreso-asir">
           <div class="progreso-header">
@@ -1212,75 +414,74 @@
             <span class="progreso-porcentaje">25%</span>
           </div>
           <div class="progreso-bar">
-            <div class="progreso-fill" style="width: 25%"></div>
+            <div class="progreso-fill" style="width: 25%" aria-label="25% completado del Grado Superior ASIR"></div>
           </div>
         </div>
         
         <div class="llamado_accion">
-          <a class="boton primary" href="mailto:sarasolera16@gmail.com"><i class="fa-solid fa-envelope me-1"></i> Contactar</a>
-          <a class="boton" href="tel:+34644766673"><i class="fa-solid fa-phone me-1"></i> Llamar</a>
-          <a class="boton" href="#proyectos"><i class="fa-solid fa-code me-1"></i> Ver Proyectos</a>
-
+          <a class="boton primary" href="mailto:sarasolera16@gmail.com" aria-label="Enviar correo a Sara Solera"><i class="fa-solid fa-envelope me-1" aria-hidden="true"></i> Contactar</a>
+          <a class="boton" href="tel:+34644766673" aria-label="Llamar a Sara Solera"><i class="fa-solid fa-phone me-1" aria-hidden="true"></i> Llamar</a>
+          <a class="boton" href="#proyectos" aria-label="Ver proyectos de Sara Solera"><i class="fa-solid fa-code me-1" aria-hidden="true"></i> Ver Proyectos</a>
         </div>
       </div>
       <div class="foto_hero">
-        <img class="avatar" src="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103" alt="Sara Solera" />
+        <img class="avatar" src="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103" alt="Foto de perfil de Sara Solera Moreno" width="400" height="400" loading="lazy" decoding="async" itemprop="image" />
       </div>
     </header>
 
-    <section id="habilidades">
+    <section id="habilidades" aria-labelledby="titulo-habilidades">
       <div class="cuadricula habilidades">
         <div class="tarjeta">
-          <h3 class="titulo_seccion"><i class="fa-solid fa-tools me-2"></i> Habilidades Técnicas</h3>
+          <h3 class="titulo_seccion" id="titulo-habilidades"><i class="fa-solid fa-tools me-2" aria-hidden="true"></i> Habilidades Técnicas</h3>
           <div class="habilidad">
             <div class="cabecera_habilidad"><span class="tooltip">Windows <span class="tooltiptext">Experiencia avanzada en administración de sistemas Windows, incluyendo configuración, troubleshooting y optimización.</span></span><span>90%</span></div>
-            <div class="barra"><span style="--w:90%"></span></div>
+            <div class="barra"><span style="--w:90%" aria-label="90% de habilidad en Windows"></span></div>
           </div>
           <div class="habilidad">
             <div class="cabecera_habilidad"><span class="tooltip">Linux <span class="tooltiptext">Conocimientos sólidos en distribuciones Linux, comandos de terminal y administración de servidores.</span></span><span>80%</span></div>
-            <div class="barra"><span style="--w:80%"></span></div>
+            <div class="barra"><span style="--w:80%" aria-label="80% de habilidad en Linux"></span></div>
           </div>
           <div class="habilidad">
             <div class="cabecera_habilidad"><span class="tooltip">Montaje de equipos <span class="tooltiptext">Habilidades prácticas en ensamblaje, configuración y mantenimiento de hardware informático.</span></span><span>95%</span></div>
-            <div class="barra"><span style="--w:95%"></span></div>
+            <div class="barra"><span style="--w:95%" aria-label="95% de habilidad en montaje de equipos"></span></div>
           </div>
           <div class="habilidad">
             <div class="cabecera_habilidad"><span class="tooltip">Reparación <span class="tooltiptext">Diagnóstico y reparación de componentes hardware, incluyendo placas madre, discos duros y fuentes de alimentación.</span></span><span>85%</span></div>
-            <div class="barra"><span style="--w:85%"></span></div>
+            <div class="barra"><span style="--w:85%" aria-label="85% de habilidad en reparación"></span></div>
           </div>
           <div class="habilidad">
             <div class="cabecera_habilidad"><span class="tooltip">Ciberseguridad <span class="tooltiptext">Fundamentos en seguridad informática, incluyendo encriptación, firewalls y mejores prácticas de seguridad.</span></span><span>70%</span></div>
-            <div class="barra"><span style="--w:70%"></span></div>
+            <div class="barra"><span style="--w:70%" aria-label="70% de habilidad en ciberseguridad"></span></div>
           </div>
           <div class="habilidad">
             <div class="cabecera_habilidad"><span class="tooltip">Redes <span class="tooltiptext">Configuración de redes locales, protocolos TCP/IP, switches y routers.</span></span><span>75%</span></div>
-            <div class="barra"><span style="--w:75%"></span></div>
+            <div class="barra"><span style="--w:75%" aria-label="75% de habilidad en redes"></span></div>
           </div>
         </div>
         <div class="tarjeta">
-          <h3 class="titulo_seccion"><i class="fa-solid fa-people-group me-2"></i> Habilidades</h3>
+          <h3 class="titulo_seccion"><i class="fa-solid fa-people-group me-2" aria-hidden="true"></i> Habilidades</h3>
           <div class="conjunto_chips">
-            <span class="chip"><i class="fa-solid fa-handshake me-1"></i> Trabajo en equipo</span>
-            <span class="chip"><i class="fa-solid fa-comments me-1"></i> Comunicación</span>
-            <span class="chip"><i class="fa-solid fa-user-check me-1"></i> Atención al cliente</span>
-            <span class="chip"><i class="fa-solid fa-list-check me-1"></i> Organización</span>
-            <span class="chip"><i class="fa-solid fa-lightbulb me-1"></i> Proactividad</span>
-            <span class="chip"><i class="fa-solid fa-brain me-1"></i> Resolución de problemas</span>
-            <span class="chip"><i class="fa-solid fa-clock me-1"></i> Gestión del tiempo</span>
-            <span class="chip"><i class="fa-solid fa-arrows-rotate me-1"></i> Adaptabilidad</span>
+            <span class="chip"><i class="fa-solid fa-handshake me-1" aria-hidden="true"></i> Trabajo en equipo</span>
+            <span class="chip"><i class="fa-solid fa-comments me-1" aria-hidden="true"></i> Comunicación</span>
+            <span class="chip"><i class="fa-solid fa-user-check me-1" aria-hidden="true"></i> Atención al cliente</span>
+            <span class="chip"><i class="fa-solid fa-list-check me-1" aria-hidden="true"></i> Organización</span>
+            <span class="chip"><i class="fa-solid fa-lightbulb me-1" aria-hidden="true"></i> Proactividad</span>
+            <span class="chip"><i class="fa-solid fa-brain me-1" aria-hidden="true"></i> Resolución de problemas</span>
+            <span class="chip"><i class="fa-solid fa-clock me-1" aria-hidden="true"></i> Gestión del tiempo</span>
+            <span class="chip"><i class="fa-solid fa-arrows-rotate me-1" aria-hidden="true"></i> Adaptabilidad</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="experiencia">
+    <section id="experiencia" aria-labelledby="titulo-experiencia">
       <div class="tarjeta">
-        <h3 class="titulo_seccion"><i class="fa-solid fa-briefcase me-2"></i> Experiencia</h3>
+        <h3 class="titulo_seccion" id="titulo-experiencia"><i class="fa-solid fa-briefcase me-2" aria-hidden="true"></i> Experiencia</h3>
         <div class="cronologia">
           <div class="elemento_cronologia">
-            <div class="tarjeta_cronologia">
-              <div class="titulo_cronologia">Becaria Departamento IT</div>
-              <div class="subtitulo_cronologia">CA Auto Bank · Abr 2025 — Jun 2025</div>
+            <div class="tarjeta_cronologia" itemscope itemtype="https://schema.org/Organization">
+              <div class="titulo_cronologia" itemprop="jobTitle">Becaria Departamento IT</div>
+              <div class="subtitulo_cronologia" itemprop="name">CA Auto Bank · Abr 2025 — Jun 2025</div>
               <ul class="m-0">
                 <li>Mantenimiento físico de servidores y racks</li>
                 <li>Montaje y reparación de equipos</li>
@@ -1289,9 +490,9 @@
             </div>
           </div>
           <div class="elemento_cronologia">
-            <div class="tarjeta_cronologia">
-              <div class="titulo_cronologia">Dependienta</div>
-              <div class="subtitulo_cronologia">Confecciones Rosi · Sep 2023 — Feb 2024</div>
+            <div class="tarjeta_cronologia" itemscope itemtype="https://schema.org/Organization">
+              <div class="titulo_cronologia" itemprop="jobTitle">Dependienta</div>
+              <div class="subtitulo_cronologia" itemprop="name">Confecciones Rosi · Sep 2023 — Feb 2024</div>
               <div>Atención al cliente, gestión de inventario y ventas.</div>
             </div>
           </div>
@@ -1299,32 +500,32 @@
       </div>
     </section>
 
-    <section id="educacion">
+    <section id="educacion" aria-labelledby="titulo-educacion">
       <div class="tarjeta">
-        <h3 class="titulo_seccion"><i class="fa-solid fa-graduation-cap me-2"></i> Educación</h3>
+        <h3 class="titulo_seccion" id="titulo-educacion"><i class="fa-solid fa-graduation-cap me-2" aria-hidden="true"></i> Educación</h3>
         <div class="cronologia">
           <div class="elemento_cronologia">
-            <div class="tarjeta_cronologia">
-              <div class="titulo_cronologia">Administración de Sistemas Informáticos en Red (ASIR)</div>
+            <div class="tarjeta_cronologia" itemscope itemtype="https://schema.org/EducationalOrganization">
+              <div class="titulo_cronologia" itemprop="description">Administración de Sistemas Informáticos en Red (ASIR)</div>
               <div class="subtitulo_cronologia">Grado Superior · Sep 2025 — Actualidad</div>
               <p>Actualmente cursando el primer año del ciclo formativo de grado superior.</p>
             </div>
           </div>
           <div class="elemento_cronologia">
-            <div class="tarjeta_cronologia">
-              <div class="titulo_cronologia">Sistemas Microinformáticos y Redes</div>
+            <div class="tarjeta_cronologia" itemscope itemtype="https://schema.org/EducationalOrganization">
+              <div class="titulo_cronologia" itemprop="description">Sistemas Microinformáticos y Redes</div>
               <div class="subtitulo_cronologia">IES Laguna de Joaztel · 2023 — 2024</div>
             </div>
           </div>
           <div class="elemento_cronologia">
-            <div class="tarjeta_cronologia">
-              <div class="titulo_cronologia">ESO</div>
+            <div class="tarjeta_cronologia" itemscope itemtype="https://schema.org/EducationalOrganization">
+              <div class="titulo_cronologia" itemprop="description">ESO</div>
               <div class="subtitulo_cronologia">IES La Senda · 2019 — 2023</div>
             </div>
           </div>
           <div class="elemento_cronologia">
-            <div class="tarjeta_cronologia">
-              <div class="titulo_cronologia">Inglés B2</div>
+            <div class="tarjeta_cronologia" itemscope itemtype="https://schema.org/EducationalOrganization">
+              <div class="titulo_cronologia" itemprop="description">Inglés B2</div>
               <div class="subtitulo_cronologia">Escuela Oficial de Idiomas · 2024 — Actualidad</div>
             </div>
           </div>
@@ -1332,15 +533,15 @@
       </div>
     </section>
 
-    <section id="proyectos">
+    <section id="proyectos" aria-labelledby="titulo-proyectos">
       <div class="tarjeta">
-        <h3 class="titulo_seccion"><i class="fa-solid fa-code me-2"></i> Proyectos ASIR</h3>
+        <h3 class="titulo_seccion" id="titulo-proyectos"><i class="fa-solid fa-code me-2" aria-hidden="true"></i> Proyectos ASIR</h3>
         <p>Proyectos realizados durante el Grado Superior de Administración de Sistemas Informáticos en Red:</p>
         
         <div class="proyectos-grid">
           <div class="proyecto-card tooltip">
             <div class="proyecto-imagen">
-              <i class="fa-solid fa-server"></i>
+              <i class="fa-solid fa-server" aria-hidden="true"></i>
             </div>
             <div class="proyecto-contenido">
               <h4 class="proyecto-titulo">Implementación de Servidor Linux</h4>
@@ -1356,7 +557,7 @@
 
           <div class="proyecto-card tooltip">
             <div class="proyecto-imagen">
-              <i class="fa-solid fa-shield-alt"></i>
+              <i class="fa-solid fa-shield-alt" aria-hidden="true"></i>
             </div>
             <div class="proyecto-contenido">
               <h4 class="proyecto-titulo">Auditoría de Seguridad</h4>
@@ -1372,7 +573,7 @@
 
           <div class="proyecto-card tooltip">
             <div class="proyecto-imagen">
-              <i class="fa-solid fa-network-wired"></i>
+              <i class="fa-solid fa-network-wired" aria-hidden="true"></i>
             </div>
             <div class="proyecto-contenido">
               <h4 class="proyecto-titulo">Diseño de Red LAN</h4>
@@ -1389,23 +590,23 @@
       </div>
     </section>
 
-    <section id="extras">
+    <section id="extras" aria-labelledby="titulo-extras">
       <div class="cuadricula" style="grid-template-columns: 1.1fr .9fr;">
         <div class="tarjeta">
-          <h3 class="titulo_seccion"><i class="fa-solid fa-star me-2"></i> Cursos</h3>
+          <h3 class="titulo_seccion" id="titulo-extras"><i class="fa-solid fa-star me-2" aria-hidden="true"></i> Cursos</h3>
           <div class="cronologia">
             <div class="elemento_cronologia">
               <div class="tarjeta_cronologia">
                 <div class="titulo_cronologia">Introducción a la ciberseguridad</div>
                 <div class="subtitulo_cronologia">Cisco Network Academy · 6 horas</div>
-                <a class="boton" href="https://docs.google.com/document/d/10LEy7cCV6pVZ0N8p5QT-lFgEAo150TgROagx0sXv6jg/edit?usp=sharing" target="_blank" style="display: inline-block;"><i class="fa-solid fa-image me-1"></i> Ver certificado</a>
+                <a class="boton" href="https://docs.google.com/document/d/10LEy7cCV6pVZ0N8p5QT-lFgEAo150TgROagx0sXv6jg/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="display: inline-block;" aria-label="Ver certificado de Introducción a la ciberseguridad"><i class="fa-solid fa-image me-1" aria-hidden="true"></i> Ver certificado</a>
               </div>
             </div>
             <div class="elemento_cronologia">
               <div class="tarjeta_cronologia">
                 <div class="titulo_cronologia">Defensa de la red</div>
                 <div class="subtitulo_cronologia">Cisco Network Academy · 27 horas</div>
-                <a class="boton" href="https://docs.google.com/document/d/1nS34rqmekppsG4lif4hdNhZUpu1t-nfMAK3fheIxZaA/edit?usp=sharing" target="_blank" style="display: inline-block;"><i class="fa-solid fa-image me-1"></i> Ver certificado</a>
+                <a class="boton" href="https://docs.google.com/document/d/1nS34rqmekppsG4lif4hdNhZUpu1t-nfMAK3fheIxZaA/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="display: inline-block;" aria-label="Ver certificado de Defensa de la red"><i class="fa-solid fa-image me-1" aria-hidden="true"></i> Ver certificado</a>
               </div>
             </div>
             <div class="elemento_cronologia">
@@ -1417,28 +618,28 @@
           </div>
         </div>
         <div class="tarjeta hobbies-card">
-          <h3 class="titulo_seccion"><i class="fa-solid fa-star me-2"></i> Aficiones y Cualidades</h3>
+          <h3 class="titulo_seccion"><i class="fa-solid fa-star me-2" aria-hidden="true"></i> Aficiones y Cualidades</h3>
           <div class="conjunto_chips">
-            <span class="chip"><i class="fa-solid fa-book me-1"></i> Leer</span>
-            <span class="chip"><i class="fa-solid fa-plane me-1"></i> Viajar</span>
-            <span class="chip"><i class="fa-solid fa-film me-1"></i> Cine</span>
-            <span class="chip"><i class="fa-solid fa-pen me-1"></i> Escribir</span>
-            <span class="chip"><i class="fa-solid fa-ear-listen me-1"></i> Escucha proactiva</span>
-            <span class="chip"><i class="fa-solid fa-user-check me-1"></i> Respeto</span>
-            <span class="chip"><i class="fa-solid fa-heart me-1"></i> Sinceridad</span>
-            <span class="chip"><i class="fa-solid fa-gem me-1"></i> Perfeccionista</span>
+            <span class="chip"><i class="fa-solid fa-book me-1" aria-hidden="true"></i> Leer</span>
+            <span class="chip"><i class="fa-solid fa-plane me-1" aria-hidden="true"></i> Viajar</span>
+            <span class="chip"><i class="fa-solid fa-film me-1" aria-hidden="true"></i> Cine</span>
+            <span class="chip"><i class="fa-solid fa-pen me-1" aria-hidden="true"></i> Escribir</span>
+            <span class="chip"><i class="fa-solid fa-ear-listen me-1" aria-hidden="true"></i> Escucha proactiva</span>
+            <span class="chip"><i class="fa-solid fa-user-check me-1" aria-hidden="true"></i> Respeto</span>
+            <span class="chip"><i class="fa-solid fa-heart me-1" aria-hidden="true"></i> Sinceridad</span>
+            <span class="chip"><i class="fa-solid fa-gem me-1" aria-hidden="true"></i> Perfeccionista</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contacto">
+    <section id="contacto" aria-labelledby="titulo-contacto">
       <div class="tarjeta">
-        <h3 class="titulo_seccion"><i class="fa-solid fa-envelope me-2"></i> Contacto</h3>
+        <h3 class="titulo_seccion" id="titulo-contacto"><i class="fa-solid fa-envelope me-2" aria-hidden="true"></i> Contacto</h3>
         <div class="contacto-grid">
-          <a href="mailto:sarasolera16@gmail.com" class="contacto-item">
+          <a href="mailto:sarasolera16@gmail.com" class="contacto-item" itemprop="email">
             <div class="contacto-icono">
-              <i class="fa-solid fa-envelope"></i>
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
             </div>
             <div class="contacto-texto">
               <div>Email</div>
@@ -1446,9 +647,9 @@
             </div>
           </a>
 
-          <a href="tel:+34644766673" class="contacto-item">
+          <a href="tel:+34644766673" class="contacto-item" itemprop="telephone">
             <div class="contacto-icono">
-              <i class="fa-solid fa-phone"></i>
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
             </div>
             <div class="contacto-texto">
               <div>Teléfono</div>
@@ -1456,19 +657,19 @@
             </div>
           </a>
 
-          <div class="contacto-item">
+          <div class="contacto-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
             <div class="contacto-icono">
-              <i class="fa-solid fa-location-dot"></i>
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
             </div>
             <div class="contacto-texto">
               <div>Ubicación</div>
-              <div class="subtitulo_cronologia">28901, Madrid</div>
+              <div class="subtitulo_cronologia" itemprop="postalCode">28901, <span itemprop="addressLocality">Madrid</span></div>
             </div>
           </div>
 
-          <a target="_blank" href="https://es.linkedin.com/in/sara-solera-moreno-18554a305?utm_source=share&utm_medium=member_mweb&utm_campaign=share_via&utm_content=profile" class="contacto-item">
+          <a target="_blank" href="https://es.linkedin.com/in/sara-solera-moreno-18554a305?utm_source=share&utm_medium=member_mweb&utm_campaign=share_via&utm_content=profile" class="contacto-item" rel="noopener noreferrer" aria-label="Perfil de LinkedIn de Sara Solera">
             <div class="contacto-icono">
-              <i class="fa-brands fa-linkedin-in"></i>
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
             </div>
             <div class="contacto-texto">
               <div>LinkedIn</div>
@@ -1476,7 +677,6 @@
             </div>
           </a>
         </div>
-
       </div>
     </section>
 
@@ -1486,20 +686,20 @@
     </footer>
   </main>
 
-  <div id="modal" style="position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; z-index:60">
+  <div id="modal" style="position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; z-index:60" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
     <div style="background:var(--elev); border:1px solid rgba(255,255,255,.15); border-radius:20px; max-width:920px; width:92vw; overflow:hidden; box-shadow:var(--shadow)">
       <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.12)">
-        <strong style="font-size: 1.2rem;">Certificado</strong>
+        <strong style="font-size: 1.2rem;" id="modal-title">Certificado</strong>
         <button id="closeModal" class="boton">Cerrar</button>
       </div>
-      <img id="modalImg" src="" alt="Certificado" style="display:block; width:100%; height:auto" />
+      <img id="modalImg" src="" alt="Certificado" style="display:block; width:100%; height:auto" loading="lazy" />
     </div>
   </div>
 
-  <div id="contactModal" style="position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; z-index:60">
+  <div id="contactModal" style="position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; z-index:60" aria-hidden="true" role="dialog" aria-labelledby="contact-modal-title">
     <div style="background:var(--elev); border:1px solid rgba(255,255,255,.15); border-radius:20px; max-width:500px; width:92vw; overflow:hidden; box-shadow:var(--shadow)">
       <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.12)">
-        <strong style="font-size: 1.2rem;">Enviar Mensaje</strong>
+        <strong style="font-size: 1.2rem;" id="contact-modal-title">Enviar Mensaje</strong>
         <button id="closeContactModal" class="boton">Cerrar</button>
       </div>
       <form id="contactForm" style="padding:20px;">
@@ -1515,18 +715,884 @@
           <label for="message" style="display:block; margin-bottom:5px; color:var(--text);">Mensaje</label>
           <textarea id="message" name="message" required style="width:100%; padding:10px; border:1px solid rgba(255,255,255,.2); border-radius:8px; background:var(--surface); color:var(--text); min-height:100px;"></textarea>
         </div>
-        <button type="submit" class="boton primary" style="width:100%;"><i class="fa-solid fa-paper-plane me-1"></i> Enviar</button>
+        <button type="submit" class="boton primary" style="width:100%;"><i class="fa-solid fa-paper-plane me-1" aria-hidden="true"></i> Enviar</button>
       </form>
     </div>
   </div>
 
-  <button id="toTop" class="volver_arriba" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+  <button id="toTop" class="volver_arriba" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
   <div id="themeButtons" style="position: fixed; top: 24px; right: 24px; z-index: 100; display: flex; gap: 12px;">
-    <button id="darkModeBtn" aria-label="Modo oscuro" class="theme-btn active"><i class="fa-solid fa-moon"></i></button>
-    <button id="lightModeBtn" aria-label="Modo claro" class="theme-btn"><i class="fa-solid fa-sun"></i></button>
+    <button id="darkModeBtn" aria-label="Activar modo oscuro" class="theme-btn active"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
+    <button id="lightModeBtn" aria-label="Activar modo claro" class="theme-btn"><i class="fa-solid fa-sun" aria-hidden="true"></i></button>
   </div>
 
+  <!-- Script optimizado -->
   <script>
+    // Función para cargar recursos de forma diferida
+    function loadDeferredResources() {
+      // Cargar Font Awesome si no se ha cargado ya
+      if (!document.querySelector('link[href*="font-awesome"]').sheet) {
+        const faLink = document.createElement('link');
+        faLink.rel = 'stylesheet';
+        faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css';
+        document.head.appendChild(faLink);
+      }
+      
+      // Cargar estilos no críticos
+      const nonCriticalCSS = document.createElement('link');
+      nonCriticalCSS.rel = 'stylesheet';
+      nonCriticalCSS.href = 'data:text/css;base64,' + btoa(`
+        /* Resto de estilos CSS que no son críticos para el renderizado inicial */
+        section {
+          padding: 40px 40px;
+          max-width: 1300px;
+          margin: 0 auto;
+        }
+        
+        .cuadricula {
+          display: grid;
+          gap: 24px;
+        }
+        
+        .tarjeta {
+          background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+          border: 1px solid rgba(255,255,255,.12);
+          border-radius: var(--radius-lg);
+          padding: 28px;
+          box-shadow: var(--shadow);
+          backdrop-filter: blur(15px);
+          transition: var(--transition);
+          position: relative;
+          overflow: hidden;
+          transform: translateY(0);
+        }
+        
+        .tarjeta:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 30px 60px rgba(0,0,0,.5);
+        }
+        
+        .tarjeta, .boton, .avatar, .proyecto-card { 
+          will-change: transform, box-shadow; 
+        }
+        
+        .tarjeta::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 5px;
+          height: 100%;
+          background: linear-gradient(to bottom, var(--primary), var(--secondary));
+          transform: scaleY(0);
+          transition: transform .6s ease;
+        }
+        
+        .tarjeta:hover::before {
+          transform: scaleY(1);
+        }
+        
+        .titulo_seccion {
+          font-family: 'Space Grotesk', sans-serif;
+          margin: 0 0 20px;
+          font-size: 2.2rem;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        
+        .titulo_seccion i {
+          color: var(--secondary);
+        }
+        
+        .habilidades {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .habilidad {
+          margin-bottom: 18px;
+        }
+        
+        .cabecera_habilidad {
+          display: flex;
+          justify-content: space-between;
+          font-weight: 700;
+          margin-bottom: 8px;
+          font-size: 1.2rem;
+        }
+        
+        .barra {
+          height: 12px;
+          background: rgba(255,255,255,.1);
+          border-radius: 999px;
+          overflow: hidden;
+          margin-top: 10px;
+          position: relative;
+        }
+        
+        .barra > span {
+          display: block;
+          height: 100%;
+          width: 0;
+          border-radius: 999px;
+          background: linear-gradient(90deg, var(--primary), var(--secondary));
+          position: relative;
+          transition: width 1.8s cubic-bezier(.2,.8,.2,1);
+          will-change: width;
+        }
+        
+        .barra > span::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+          animation: shine 2.5s infinite;
+        }
+        
+        @keyframes shine {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        
+        .cronologia {
+          position: relative;
+        }
+        
+        .cronologia::before {
+          content: "";
+          position: absolute;
+          left: 14px;
+          top: 0;
+          bottom: 0;
+          width: 3px;
+          background: linear-gradient(to bottom, var(--primary), var(--secondary));
+          opacity: .6;
+        }
+        
+        .elemento_cronologia {
+          position: relative;
+          padding-left: 40px;
+          margin-bottom: 22px;
+        }
+        
+        .elemento_cronologia::before {
+          content: "";
+          position: absolute;
+          left: 6px;
+          top: 8px;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: var(--secondary);
+          box-shadow: 0 0 0 8px var(--ring);
+          z-index: 2;
+          transition: var(--transition);
+        }
+        
+        .elemento_cronologia:hover::before {
+          transform: scale(1.2);
+          box-shadow: 0 0 0 10px var(--ring);
+        }
+        
+        .tarjeta_cronologia {
+          background: rgba(255,255,255,.06);
+          border: 1px solid rgba(255,255,255,.1);
+          border-radius: 16px;
+          padding: 18px 20px;
+          transition: var(--transition);
+        }
+        
+        .tarjeta_cronologia:hover {
+          background: rgba(255,255,255,.08);
+          transform: translateX(8px);
+        }
+        
+        .titulo_cronologia {
+          font-weight: 800;
+          color: var(--text);
+          font-size: 1.3rem;
+          margin-bottom: 6px;
+        }
+        
+        .subtitulo_cronologia {
+          color: var(--muted);
+          margin-bottom: 10px;
+          font-size: 1.1rem;
+        }
+        
+        .conjunto_chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+        
+        .chip {
+          padding: 12px 16px;
+          border-radius: 999px;
+          background: rgba(255,255,255,.1);
+          border: 2px solid var(--chip-border-color);
+          font-weight: 600;
+          transition: var(--transition);
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 1.1rem;
+        }
+        
+        .chip:hover {
+          background: rgba(255,255,255,.15);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 16px rgba(0,0,0,.2);
+        }
+
+        .hobbies-card .chip {
+          border: 2px solid var(--secondary);
+        }
+
+        /* Corrección para modo claro: chips con borde */
+        body.light-mode .chip {
+          border: 2px solid var(--chip-border-light);
+        }
+        
+        .volver_arriba {
+          position: fixed;
+          right: 24px;
+          bottom: 24px;
+          border-radius: 999px;
+          width: 56px;
+          height: 56px;
+          display: grid;
+          place-items: center;
+          background: linear-gradient(135deg, var(--primary), var(--secondary));
+          border: 0;
+          color: #fff;
+          cursor: pointer;
+          box-shadow: var(--glow);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(15px);
+          transition: var(--transition);
+          z-index: 49;
+          font-size: 20px;
+        }
+        
+        .volver_arriba.show {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+        
+        .volver_arriba:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(138, 108, 255, 0.5);
+        }
+
+        .theme-btn {
+          border: 0;
+          border-radius: 50%;
+          width: 48px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--elev);
+          color: var(--text);
+          cursor: pointer;
+          transition: var(--transition);
+          box-shadow: 0 4px 15px rgba(0,0,0,.2);
+          font-size: 18px;
+        }
+
+        .theme-btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba(0,0,0,.3);
+        }
+
+        .theme-btn.active {
+          background: var(--primary);
+          color: white;
+          box-shadow: var(--glow);
+        }
+        
+        .progreso-asir {
+          margin-top: 28px;
+          padding: 20px;
+          background: rgba(255,255,255,.05);
+          border-radius: var(--radius-md);
+          border: 1px solid rgba(255,255,255,.08);
+        }
+        
+        .progreso-header {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 14px;
+        }
+        
+        .progreso-titulo {
+          font-weight: 700;
+          color: var(--secondary);
+          font-size: 1.3rem;
+        }
+        
+        .progreso-porcentaje {
+          font-weight: 800;
+          color: var(--secondary);
+          font-size: 1.3rem;
+        }
+        
+        .progreso-bar {
+          height: 10px;
+          background: rgba(255,255,255,.1);
+          border-radius: 999px;
+          overflow: hidden;
+        }
+        
+        .progreso-fill {
+          height: 100%;
+          background: var(--secondary);
+          border-radius: 999px;
+          width: 0;
+          transition: width 1.8s ease;
+        }
+        
+        .particulas {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: -1;
+          contain: strict;
+        }
+        
+        .particula {
+          position: absolute;
+          width: 5px;
+          height: 5px;
+          background: var(--secondary);
+          border-radius: 50%;
+          opacity: .3;
+        }
+        
+        .texto-destacado {
+          background: linear-gradient(135deg, var(--primary), var(--secondary));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: 800;
+        }
+        
+        .proyectos-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          gap: 24px;
+          margin-top: 28px;
+        }
+        
+        .proyecto-card {
+          background: rgba(255,255,255,.06);
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          border: 1px solid rgba(255,255,255,.1);
+          transition: var(--transition);
+          transform: translateY(0);
+        }
+        
+        .proyecto-card:hover {
+          transform: translateY(-8px);
+          box-shadow: var(--glow);
+        }
+
+        .tooltip {
+          position: relative;
+          display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+          visibility: hidden;
+          width: 200px;
+          background-color: var(--elev);
+          color: var(--text);
+          text-align: center;
+          border-radius: 6px;
+          padding: 5px 10px;
+          position: absolute;
+          z-index: 1;
+          bottom: 125%;
+          left: 50%;
+          margin-left: -100px;
+          opacity: 0;
+          transition: opacity 0.3s;
+          border: 1px solid rgba(255,255,255,.2);
+          font-size: 0.9rem;
+        }
+
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        .tooltip .tooltiptext::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: var(--elev) transparent transparent transparent;
+        }
+        
+        .proyecto-imagen {
+          height: 180px;
+          background: linear-gradient(135deg, var(--primary), var(--secondary));
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 2.5rem;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .proyecto-imagen::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+        }
+        
+        .proyecto-contenido {
+          padding: 20px;
+        }
+        
+        .proyecto-titulo {
+          font-weight: 800;
+          margin-bottom: 12px;
+          font-size: 1.4rem;
+        }
+        
+        .proyecto-descripcion {
+          font-size: 1.1rem;
+          color: var(--muted);
+          margin-bottom: 20px;
+          line-height: 1.6;
+        }
+        
+        .proyecto-tech {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        
+        .tech-tag {
+          background: rgba(255,255,255,.1);
+          padding: 6px 12px;
+          border-radius: 999px;
+          font-size: 0.9rem;
+          font-weight: 600;
+        }
+        
+        .contacto-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 20px;
+        }
+        
+        .contacto-item {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          padding: 16px;
+          background: rgba(255,255,255,.06);
+          border-radius: var(--radius-md);
+          transition: var(--transition);
+          text-decoration: none;
+          color: inherit;
+          min-width: 0;
+        }
+        
+        .contacto-item:hover {
+          background: rgba(255,255,255,.1);
+          transform: translateY(-4px);
+        }
+        
+        .contacto-icono {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, var(--primary), var(--secondary));
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 1.2rem;
+          flex-shrink: 0;
+        }
+        
+        .contacto-texto {
+          font-size: 1.1rem;
+          min-width: 0;
+          width: 100%;
+          overflow: hidden;
+        }
+        
+        @media (max-width: 1200px) {
+          .hero {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 50px;
+          }
+          
+          .foto_hero {
+            order: -1;
+            display: flex;
+            justify-content: center;
+          }
+          
+          main {
+            margin-left: 0;
+          }
+          
+          .barra_lateral {
+            position: fixed;
+            bottom: 0;
+            top: auto;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-around;
+            padding: 14px;
+            background: rgba(16, 24, 38, 0.95);
+            border-top: 1px solid rgba(255,255,255,.1);
+            border-right: none;
+            backdrop-filter: blur(16px);
+            z-index: 60;
+          }
+          
+          .enlace_navegacion {
+            height: 48px;
+            width: 48px;
+          }
+          /* Ensure icon contrast on mobile bottom bar (dark background) */
+          .barra_lateral .enlace_navegacion {
+            color: #fff;
+            opacity: 0.9;
+          }
+          .barra_lateral .enlace_navegacion:focus-visible {
+            outline: 2px solid #ffffff99;
+            outline-offset: 2px;
+            border-radius: 12px;
+          }
+          
+          .enlace_navegacion::after {
+            display: none;
+          }
+          
+          .logo {
+            display: none;
+          }
+          
+          .habilidades {
+            grid-template-columns: 1fr;
+          }
+          
+          .titulo {
+            font-size: 3.5rem;
+          }
+          
+          .subtitulo {
+            font-size: 1.4rem;
+          }
+        }
+        
+        @media (max-width: 992px) {
+          .hero {
+            padding: 60px 30px 30px;
+          }
+          
+          .titulo {
+            font-size: 3rem;
+          }
+          
+          .subtitulo {
+            font-size: 1.3rem;
+          }
+          
+          .descripcion {
+            font-size: 1.1rem;
+          }
+          
+          section {
+            padding: 30px 30px;
+          }
+          
+          .tarjeta {
+            padding: 24px;
+          }
+          
+          .titulo_seccion {
+            font-size: 2rem;
+          }
+          
+          .cuadricula {
+            grid-template-columns: 1fr !important;
+          }
+          
+          .conjunto_chips {
+            justify-content: center;
+          }
+          
+          .chip {
+            font-size: 1rem;
+          }
+          
+          .llamado_accion {
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .boton {
+            width: 100%;
+            max-width: 250px;
+          }
+          
+          .proyectos-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .hero {
+            min-height: 70vh;
+            padding: 50px 20px;
+          }
+          
+          .titulo {
+            font-size: 2.5rem;
+          }
+          
+          .subtitulo {
+            font-size: 1.2rem;
+          }
+          
+          .descripcion {
+            font-size: 1rem;
+          }
+          
+          section {
+            padding: 25px 20px;
+          }
+          
+          .tarjeta {
+            padding: 20px;
+          }
+          
+          .titulo_seccion {
+            font-size: 1.8rem;
+          }
+          
+          .tarjeta_cronologia {
+            padding: 16px 18px;
+          }
+          
+          .titulo_cronologia {
+            font-size: 1.2rem;
+          }
+          
+          .subtitulo_cronologia {
+            font-size: 1rem;
+          }
+          
+          .chip {
+            font-size: 0.95rem;
+            padding: 10px 14px;
+          }
+          
+          .boton {
+            padding: 14px 20px;
+            font-size: 1rem;
+          }
+          
+          .avatar {
+            max-width: 320px;
+          }
+          
+          .barra_lateral {
+            padding: 12px;
+          }
+          
+          .enlace_navegacion {
+            height: 44px;
+            width: 44px;
+            font-size: 18px;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .hero {
+            min-height: 65vh;
+            padding: 45px 18px;
+          }
+
+          .titulo {
+            font-size: 2.3rem;
+          }
+
+          .subtitulo {
+            font-size: 1.15rem;
+          }
+
+          .descripcion {
+            font-size: 0.98rem;
+          }
+
+          section {
+            padding: 22px 18px;
+          }
+
+          .tarjeta {
+            padding: 20px;
+          }
+
+          .titulo_seccion {
+            font-size: 1.7rem;
+          }
+
+          .tarjeta_cronologia {
+            padding: 15px 17px;
+          }
+
+          .titulo_cronologia {
+            font-size: 1.15rem;
+          }
+
+          .subtitulo_cronologia {
+            font-size: 0.98rem;
+          }
+
+          .chip {
+            font-size: 0.92rem;
+            padding: 9px 13px;
+          }
+
+          .boton {
+            padding: 13px 19px;
+            font-size: 0.98rem;
+          }
+
+          .avatar {
+            max-width: 300px;
+          }
+
+          .barra_lateral {
+            padding: 11px;
+          }
+
+          .enlace_navegacion {
+            height: 42px;
+            width: 42px;
+            font-size: 17px;
+          }
+
+          .volver_arriba {
+            width: 50px;
+            height: 50px;
+            right: 16px;
+            bottom: 16px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero {
+            min-height: 60vh;
+            padding: 40px 15px;
+          }
+
+          .titulo {
+            font-size: 2.2rem;
+          }
+
+          .subtitulo {
+            font-size: 1.1rem;
+          }
+
+          .descripcion {
+            font-size: 0.95rem;
+          }
+
+          section {
+            padding: 20px 15px;
+          }
+
+          .tarjeta {
+            padding: 18px;
+          }
+
+          .titulo_seccion {
+            font-size: 1.6rem;
+          }
+
+          .tarjeta_cronologia {
+            padding: 14px 16px;
+          }
+
+          .titulo_cronologia {
+            font-size: 1.1rem;
+          }
+
+          .subtitulo_cronologia {
+            font-size: 0.95rem;
+          }
+
+          .chip {
+            font-size: 0.9rem;
+            padding: 8px 12px;
+          }
+
+          .boton {
+            padding: 12px 18px;
+            font-size: 0.95rem;
+          }
+
+          .avatar {
+            max-width: 280px;
+          }
+
+          .barra_lateral {
+            padding: 10px;
+          }
+
+          .enlace_navegacion {
+            height: 40px;
+            width: 40px;
+            font-size: 16px;
+          }
+
+          .volver_arriba {
+            width: 48px;
+            height: 48px;
+            right: 15px;
+            bottom: 15px;
+          }
+        }
+      `);
+      document.head.appendChild(nonCriticalCSS);
+    }
+
+    // Cargar recursos no críticos cuando la página esté lista
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadDeferredResources);
+    } else {
+      loadDeferredResources();
+    }
+
+    // El resto del código JavaScript permanece igual pero optimizado
     const addPassive = (el, evt, handler) => el.addEventListener(evt, handler, { passive: true });
     let shimmer = false;
     
