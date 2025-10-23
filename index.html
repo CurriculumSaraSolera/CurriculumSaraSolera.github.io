@@ -98,6 +98,8 @@
       --spot-y: 50vh;
       --spot-size: 600px;
       --spot-intensity: 0.15;
+      --chip-border-color: rgba(255,255,255,.15);
+      --chip-border-light: rgba(0,0,0,.1);
     }
     
     * { 
@@ -531,7 +533,7 @@
       padding: 12px 16px;
       border-radius: 999px;
       background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.15);
+      border: 2px solid var(--chip-border-color);
       font-weight: 600;
       transition: var(--transition);
       display: flex;
@@ -548,6 +550,11 @@
 
     .hobbies-card .chip {
       border: 2px solid var(--secondary);
+    }
+
+    /* Corrección para modo claro: chips con borde */
+    body.light-mode .chip {
+      border: 2px solid var(--chip-border-light);
     }
     
     .volver_arriba {
@@ -1184,7 +1191,7 @@
   
   <aside class="barra_lateral">
     <div class="logo">SS</div>
-    <a class="enlace_navegacion active home" href="#inicio" title="Inicio"><i class="fa-solid fa-house"></i></a>
+    <a class="enlace_navegacion home" href="#inicio" title="Inicio"><i class="fa-solid fa-house"></i></a>
     <a class="enlace_navegacion skills" href="#habilidades" title="Habilidades"><i class="fa-solid fa-tools"></i></a>
     <a class="enlace_navegacion experience" href="#experiencia" title="Experiencia"><i class="fa-solid fa-briefcase"></i></a>
     <a class="enlace_navegacion education" href="#educacion" title="Educación"><i class="fa-solid fa-graduation-cap"></i></a>
@@ -1522,17 +1529,11 @@
   <script>
     const addPassive = (el, evt, handler) => el.addEventListener(evt, handler, { passive: true });
     let shimmer = false;
-    const themes = {
-      base: {
-        '--bg': '#fef7f0', '--surface': '#ffffff','--elev': '#f8f4f0','--text': '#2d1b69','--muted': '#8b7ba8','--primary': '#e91e63','--secondary': '#9c27b0','--accent': '#ff9800','--ring': 'rgba(233,30,99,.35)','--glow': '0 0 30px rgba(233,30,99,.25)'
-      },
-      pastel: {
-        '--bg': '#f0f8ff', '--surface': '#ffffff','--elev': '#f5f5f5','--text': '#4a148c','--muted': '#ba68c8','--primary': '#ec407a','--secondary': '#ab47bc','--accent': '#ffb74d','--ring': 'rgba(236,64,122,.35)','--glow': '0 0 30px rgba(236,64,122,.25)'
-      },
-      sunset: {
-        '--bg': '#fff3e0', '--surface': '#ffffff','--elev': '#fce4ec','--text': '#880e4f','--muted': '#f06292','--primary': '#d81b60','--secondary': '#ba68c8','--accent': '#ff8a65','--ring': 'rgba(216,27,96,.35)','--glow': '0 0 30px rgba(216,27,96,.25)'
-      }
-    };
+    
+    // Variables para el sistema de navegación mejorado
+    let currentSection = 'inicio';
+    let isScrolling = false;
+    let scrollTimeout;
 
     const enlaces = document.querySelectorAll('.enlace_navegacion');
     const secciones = [
@@ -1547,29 +1548,111 @@
 
     const seccionPorId = new Map(secciones.map(s => [`#${s.id}`, s]));
 
+    // Función mejorada para actualizar navegación
     const actualizarActiva = (hash) => {
+      if (currentSection === hash.replace('#', '')) return;
+      
+      currentSection = hash.replace('#', '');
       enlaces.forEach(a => a.classList.toggle('active', a.getAttribute('href') === hash));
     };
 
+    // Observador de intersección mejorado para pantallas grandes
     const obsNav = new IntersectionObserver((entries) => {
+      // Si estamos en medio de un scroll programado, ignorar
+      if (isScrolling) return;
+      
       let mejor = null;
+      let mejorRatio = 0;
+      
       for (const en of entries) {
         if (!en.isIntersecting) continue;
-        if (!mejor || en.intersectionRatio > mejor.intersectionRatio) mejor = en;
+        
+        // Priorizar secciones con mayor porcentaje de visibilidad
+        if (en.intersectionRatio > mejorRatio) {
+          mejor = en;
+          mejorRatio = en.intersectionRatio;
+        }
       }
-      if (mejor) actualizarActiva(`#${mejor.target.id}`);
-    }, { rootMargin: '-20% 0px -60% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
+      
+      if (mejor && mejorRatio > 0.1) { // Reducido el umbral para mejor detección
+        actualizarActiva(`#${mejor.target.id}`);
+        history.replaceState(null, '', `#${mejor.target.id}`);
+      }
+    }, { 
+      rootMargin: window.innerWidth > 1200 ? '-30% 0px -50% 0px' : '-20% 0px -60% 0px', 
+      threshold: [0.1, 0.2, 0.3, 0.5, 0.7, 0.9]
+    });
 
     secciones.forEach(s => obsNav.observe(s));
 
+    // Inicializar navegación basada en hash actual
+    window.addEventListener('load', () => {
+      const hash = window.location.hash || '#inicio';
+      actualizarActiva(hash);
+      
+      // Desplazamiento suave al cargar con hash
+      if (window.location.hash) {
+        setTimeout(() => {
+          const objetivo = seccionPorId.get(window.location.hash);
+          if (objetivo) {
+            isScrolling = true;
+            objetivo.scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => { isScrolling = false; }, 800);
+          }
+        }, 100);
+      }
+    });
+
+    // Navegación por clic mejorada
     enlaces.forEach(a => a.addEventListener('click', (e) => {
       const href = a.getAttribute('href');
       if (!href || !href.startsWith('#')) return;
       e.preventDefault();
+      
       const objetivo = seccionPorId.get(href);
-      if (objetivo) objetivo.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      history.replaceState(null, '', href);
+      if (objetivo) {
+        isScrolling = true;
+        objetivo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', href);
+        
+        // Restablecer después de la animación
+        setTimeout(() => { isScrolling = false; }, 800);
+      }
     }));
+
+    // Detectar scroll manual para evitar conflictos - MEJORADO
+    window.addEventListener('scroll', () => {
+      if (isScrolling) return;
+      
+      // Limitar la frecuencia de actualización durante el scroll
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        // Forzar actualización durante scroll manual
+        const scrollPos = window.scrollY + (window.innerHeight * 0.3); // Ajustado para mejor detección
+        
+        let current = 'inicio';
+        let minDistance = Infinity;
+        
+        for (const section of secciones) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          const sectionMiddle = sectionTop + (sectionHeight / 2);
+          
+          // Calcular distancia desde el punto medio de la sección a la posición actual
+          const distance = Math.abs(sectionMiddle - scrollPos);
+          
+          if (distance < minDistance) {
+            minDistance = distance;
+            current = section.id;
+          }
+        }
+        
+        if (current !== currentSection) {
+          actualizarActiva(`#${current}`);
+          history.replaceState(null, '', `#${current}`);
+        }
+      }, 50); // Reducido para mayor responsividad
+    });
 
     const barras = document.querySelectorAll('.barra > span');
     const obsBarras = new IntersectionObserver((entries) => {
@@ -1609,7 +1692,11 @@
       if (window.scrollY > 300) volver_arriba.classList.add('show');
       else volver_arriba.classList.remove('show');
     });
-    volver_arriba.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    volver_arriba.addEventListener('click', () => {
+      isScrolling = true;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => { isScrolling = false; }, 800);
+    });
 
     const darkModeBtn = document.getElementById('darkModeBtn');
     const lightModeBtn = document.getElementById('lightModeBtn');
@@ -1625,7 +1712,8 @@
       '--secondary': '#ba68c8',
       '--accent': '#ffb74d',
       '--ring': 'rgba(233,30,99,.35)',
-      '--glow': '0 0 30px rgba(233,30,99,.45)'
+      '--glow': '0 0 30px rgba(233,30,99,.45)',
+      '--chip-border-color': 'rgba(255,255,255,.15)'
     };
 
     // Single light theme (blue primary, purple secondary)
@@ -1639,24 +1727,28 @@
       '--secondary': '#ba68c8',
       '--accent': '#28a745',
       '--ring': 'rgba(0,123,255,.35)',
-      '--glow': '0 0 30px rgba(0,123,255,.25)'
+      '--glow': '0 0 30px rgba(0,123,255,.25)',
+      '--chip-border-color': 'rgba(0,0,0,.1)'
     };
 
     let isDarkMode = true; // Default to dark mode
 
     // Apply dark theme by default on page load
     Object.entries(darkTheme).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));
+    document.body.classList.remove('light-mode');
     updateButtonStates();
 
     darkModeBtn.addEventListener('click', () => {
       isDarkMode = true;
       Object.entries(darkTheme).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));
+      document.body.classList.remove('light-mode');
       updateButtonStates();
     });
 
     lightModeBtn.addEventListener('click', () => {
       isDarkMode = false;
       Object.entries(lightTheme).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));
+      document.body.classList.add('light-mode');
       updateButtonStates();
     });
 
@@ -1669,8 +1761,6 @@
         darkModeBtn.classList.remove('active');
       }
     }
-
-
 
     const contactModal = document.getElementById('contactModal');
     const contactForm = document.getElementById('contactForm');
