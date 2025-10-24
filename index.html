@@ -452,7 +452,8 @@
         </div>
       </div>
       <div class="foto_hero">
-        <img class="avatar" src="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103" alt="Foto de perfil de Sara Solera Moreno" width="400" height="400" loading="lazy" decoding="async" itemprop="image" />
+        <!-- IMAGEN LCP OPTIMIZADA: Eliminada carga diferida y agregada prioridad alta -->
+        <img class="avatar" src="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103" alt="Foto de perfil de Sara Solera Moreno" width="400" height="400" loading="eager" decoding="async" itemprop="image" fetchpriority="high" />
       </div>
     </header>
 
@@ -762,6 +763,7 @@
       s.textContent = css;
       document.head.appendChild(s);
     })();
+    
     // Función para cargar recursos de forma diferida
     function loadDeferredResources() {
       // Cargar Font Awesome si no se ha cargado ya y evitar reflujo
