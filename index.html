@@ -316,6 +316,8 @@
       box-shadow: var(--glow);
       transition: var(--transition);
       filter: brightness(1.05) contrast(1.05);
+      content-visibility: auto;
+      contain-intrinsic-size: 400px 400px;
     }
     
     .avatar:hover {
@@ -433,13 +435,13 @@
         <p class="subtitulo">Futura Técnica Superior en <span style="color:var(--text); -webkit-text-fill-color:unset; background:none;">Administración de Sistemas Informáticos en Red</span></p>
         <p class="descripcion" itemprop="description">Actualmente cursando el Grado Superior de ASIR (iniciado en septiembre de 2025). Especializada en mantenimiento y reparación de equipos, sistemas Windows y Linux, y fundamentos de ciberseguridad. Experiencia en soporte IT y atención al cliente. Aprendizaje continuo y orientación a resultados.</p>
         
-        <div class="progreso-asir">
+        <div class="progreso-asir" role="group" aria-labelledby="progreso-asir-label">
           <div class="progreso-header">
-            <span class="progreso-titulo">Progreso ASIR</span>
+            <span id="progreso-asir-label" class="progreso-titulo">Progreso ASIR</span>
             <span class="progreso-porcentaje">25%</span>
           </div>
-          <div class="progreso-bar">
-            <div class="progreso-fill" style="width: 25%" aria-label="25% completado del Grado Superior ASIR"></div>
+          <div class="progreso-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" aria-labelledby="progreso-asir-label">
+            <div class="progreso-fill" style="width: 25%"></div>
           </div>
         </div>
         
@@ -457,34 +459,34 @@
     <section id="habilidades" aria-labelledby="titulo-habilidades">
       <div class="cuadricula habilidades">
         <div class="tarjeta">
-          <h3 class="titulo_seccion" id="titulo-habilidades"><i class="fa-solid fa-tools me-2" aria-hidden="true"></i> Habilidades Técnicas</h3>
+          <h2 class="titulo_seccion" id="titulo-habilidades"><i class="fa-solid fa-tools me-2" aria-hidden="true"></i> Habilidades Técnicas</h2>
           <div class="habilidad">
             <div class="cabecera_habilidad"><span class="tooltip">Windows <span class="tooltiptext">Experiencia avanzada en administración de sistemas Windows, incluyendo configuración, troubleshooting y optimización.</span></span><span>90%</span></div>
-            <div class="barra"><span style="--w:90%" aria-label="90% de habilidad en Windows"></span></div>
+            <div class="barra" role="progressbar" aria-label="Habilidad en Windows" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90"><span style="--w:90%"></span></div>
           </div>
           <div class="habilidad">
             <div class="cabecera_habilidad"><span class="tooltip">Linux <span class="tooltiptext">Conocimientos sólidos en distribuciones Linux, comandos de terminal y administración de servidores.</span></span><span>80%</span></div>
-            <div class="barra"><span style="--w:80%" aria-label="80% de habilidad en Linux"></span></div>
+            <div class="barra" role="progressbar" aria-label="Habilidad en Linux" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><span style="--w:80%"></span></div>
           </div>
           <div class="habilidad">
             <div class="cabecera_habilidad"><span class="tooltip">Montaje de equipos <span class="tooltiptext">Habilidades prácticas en ensamblaje, configuración y mantenimiento de hardware informático.</span></span><span>95%</span></div>
-            <div class="barra"><span style="--w:95%" aria-label="95% de habilidad en montaje de equipos"></span></div>
+            <div class="barra" role="progressbar" aria-label="Habilidad en montaje de equipos" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95"><span style="--w:95%"></span></div>
           </div>
           <div class="habilidad">
             <div class="cabecera_habilidad"><span class="tooltip">Reparación <span class="tooltiptext">Diagnóstico y reparación de componentes hardware, incluyendo placas madre, discos duros y fuentes de alimentación.</span></span><span>85%</span></div>
-            <div class="barra"><span style="--w:85%" aria-label="85% de habilidad en reparación"></span></div>
+            <div class="barra" role="progressbar" aria-label="Habilidad en reparación" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85"><span style="--w:85%"></span></div>
           </div>
           <div class="habilidad">
             <div class="cabecera_habilidad"><span class="tooltip">Ciberseguridad <span class="tooltiptext">Fundamentos en seguridad informática, incluyendo encriptación, firewalls y mejores prácticas de seguridad.</span></span><span>70%</span></div>
-            <div class="barra"><span style="--w:70%" aria-label="70% de habilidad en ciberseguridad"></span></div>
+            <div class="barra" role="progressbar" aria-label="Habilidad en ciberseguridad" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70"><span style="--w:70%"></span></div>
           </div>
           <div class="habilidad">
             <div class="cabecera_habilidad"><span class="tooltip">Redes <span class="tooltiptext">Configuración de redes locales, protocolos TCP/IP, switches y routers.</span></span><span>75%</span></div>
-            <div class="barra"><span style="--w:75%" aria-label="75% de habilidad en redes"></span></div>
+            <div class="barra" role="progressbar" aria-label="Habilidad en redes" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75"><span style="--w:75%"></span></div>
           </div>
         </div>
         <div class="tarjeta">
-          <h3 class="titulo_seccion"><i class="fa-solid fa-people-group me-2" aria-hidden="true"></i> Habilidades</h3>
+          <h2 class="titulo_seccion"><i class="fa-solid fa-people-group me-2" aria-hidden="true"></i> Habilidades</h2>
           <div class="conjunto_chips">
             <span class="chip"><i class="fa-solid fa-handshake me-1" aria-hidden="true"></i> Trabajo en equipo</span>
             <span class="chip"><i class="fa-solid fa-comments me-1" aria-hidden="true"></i> Comunicación</span>
@@ -501,7 +503,7 @@
 
     <section id="experiencia" aria-labelledby="titulo-experiencia">
       <div class="tarjeta">
-        <h3 class="titulo_seccion" id="titulo-experiencia"><i class="fa-solid fa-briefcase me-2" aria-hidden="true"></i> Experiencia</h3>
+        <h2 class="titulo_seccion" id="titulo-experiencia"><i class="fa-solid fa-briefcase me-2" aria-hidden="true"></i> Experiencia</h2>
         <div class="cronologia">
           <div class="elemento_cronologia">
             <div class="tarjeta_cronologia" itemscope itemtype="https://schema.org/Organization">
@@ -527,7 +529,7 @@
 
     <section id="educacion" aria-labelledby="titulo-educacion">
       <div class="tarjeta">
-        <h3 class="titulo_seccion" id="titulo-educacion"><i class="fa-solid fa-graduation-cap me-2" aria-hidden="true"></i> Educación</h3>
+        <h2 class="titulo_seccion" id="titulo-educacion"><i class="fa-solid fa-graduation-cap me-2" aria-hidden="true"></i> Educación</h2>
         <div class="cronologia">
           <div class="elemento_cronologia">
             <div class="tarjeta_cronologia" itemscope itemtype="https://schema.org/EducationalOrganization">
@@ -560,7 +562,7 @@
 
     <section id="proyectos" aria-labelledby="titulo-proyectos">
       <div class="tarjeta">
-        <h3 class="titulo_seccion" id="titulo-proyectos"><i class="fa-solid fa-code me-2" aria-hidden="true"></i> Proyectos ASIR</h3>
+        <h2 class="titulo_seccion" id="titulo-proyectos"><i class="fa-solid fa-code me-2" aria-hidden="true"></i> Proyectos ASIR</h2>
         <p>Proyectos realizados durante el Grado Superior de Administración de Sistemas Informáticos en Red:</p>
         
         <div class="proyectos-grid">
@@ -618,7 +620,7 @@
     <section id="extras" aria-labelledby="titulo-extras">
       <div class="cuadricula" style="grid-template-columns: 1.1fr .9fr;">
         <div class="tarjeta">
-          <h3 class="titulo_seccion" id="titulo-extras"><i class="fa-solid fa-star me-2" aria-hidden="true"></i> Cursos</h3>
+          <h2 class="titulo_seccion" id="titulo-extras"><i class="fa-solid fa-star me-2" aria-hidden="true"></i> Cursos</h2>
           <div class="cronologia">
             <div class="elemento_cronologia">
               <div class="tarjeta_cronologia">
@@ -643,7 +645,7 @@
           </div>
         </div>
         <div class="tarjeta hobbies-card">
-          <h3 class="titulo_seccion"><i class="fa-solid fa-star me-2" aria-hidden="true"></i> Aficiones y Cualidades</h3>
+          <h2 class="titulo_seccion"><i class="fa-solid fa-star me-2" aria-hidden="true"></i> Aficiones y Cualidades</h2>
           <div class="conjunto_chips">
             <span class="chip"><i class="fa-solid fa-book me-1" aria-hidden="true"></i> Leer</span>
             <span class="chip"><i class="fa-solid fa-plane me-1" aria-hidden="true"></i> Viajar</span>
@@ -660,7 +662,7 @@
 
     <section id="contacto" aria-labelledby="titulo-contacto">
       <div class="tarjeta">
-        <h3 class="titulo_seccion" id="titulo-contacto"><i class="fa-solid fa-envelope me-2" aria-hidden="true"></i> Contacto</h3>
+        <h2 class="titulo_seccion" id="titulo-contacto"><i class="fa-solid fa-envelope me-2" aria-hidden="true"></i> Contacto</h2>
         <div class="contacto-grid">
           <a href="mailto:sarasolera16@gmail.com" class="contacto-item" itemprop="email">
             <div class="contacto-icono">
@@ -1402,10 +1404,16 @@
         }
         
         @media (max-width: 768px) {
+          /* Reducir efectos costosos en móvil para mejorar FP/FCP/LCP */
+          .particulas { display: none; }
+          .tarjeta, .tarjeta_hero, .proyecto-card { backdrop-filter: none; }
           .hero {
             min-height: 70vh;
             padding: 50px 20px;
           }
+          .barra_lateral { backdrop-filter: none; }
+          .boton, .avatar, .proyecto-card, .tarjeta { transition: transform .2s ease, box-shadow .2s ease; }
+        }
           
           .titulo {
             font-size: 2.5rem;
@@ -1899,6 +1907,7 @@
         if (entry.isIntersecting) {
           entry.target.style.opacity = '1';
           entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
@@ -1926,6 +1935,11 @@
         document.documentElement.style.setProperty('--spot-intensity', shimmer ? '0.28' : '0');
       }
     });
+
+    /* Respeta preferencias de movimiento para accesibilidad */
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      shimmer = false;
+    }
 
     function crearParticulas() {
       const contenedor = document.getElementById('particulas');
