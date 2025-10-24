@@ -32,6 +32,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   
   <!-- Precarga de recursos críticos -->
+  <link rel="preload" as="image" href="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103" imagesrcset="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103 400w" imagesizes="(max-width: 576px) 60vw, (max-width: 992px) 40vw, 400px" fetchpriority="high">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"></noscript>
   
@@ -309,7 +310,7 @@
     .avatar {
       width: 100%;
       max-width: 400px;
-      aspect-ratio: 1;
+      aspect-ratio: 1 / 1;
       border-radius: 28px;
       object-fit: cover;
       border: 6px solid rgba(255,255,255,.2);
@@ -318,6 +319,7 @@
       filter: brightness(1.05) contrast(1.05);
       content-visibility: auto;
       contain-intrinsic-size: 400px 400px;
+      background-color: #e9ecef; /* evita CLS durante la carga */
     }
     
     .avatar:hover {
@@ -453,7 +455,18 @@
       </div>
       <div class="foto_hero">
         <!-- IMAGEN LCP OPTIMIZADA: Eliminada carga diferida y agregada prioridad alta -->
-        <img class="avatar" src="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103" alt="Foto de perfil de Sara Solera Moreno" width="400" height="400" loading="eager" decoding="async" itemprop="image" fetchpriority="high" />
+        <img
+          class="avatar"
+          alt="Foto de perfil de Sara Solera Moreno"
+          width="400" height="400"
+          decoding="async"
+          fetchpriority="high"
+          srcset="
+            https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103 400w
+          "
+          sizes="(max-width: 576px) 60vw, (max-width: 992px) 40vw, 400px"
+          src="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103"
+        />
       </div>
     </header>
 
@@ -756,6 +769,15 @@
 
   <!-- Script optimizado -->
   <script>
+    // Evitar CLS por fuentes: fuerza font-display: swap
+    (function(){
+      const l = document.querySelector('link[href*="fonts.googleapis.com"]');
+      if (!l) return;
+      const fix = document.createElement('style');
+      fix.textContent = "@font-face{font-display:swap;}"; // afectará a fuentes @importadas por Google
+      document.head.appendChild(fix);
+      document.documentElement.style.setProperty('--font-metrics-adjust', '1');
+    })();
     // Clase oculta accesible para lectores de pantalla
     (function(){
       const css = '.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}';
