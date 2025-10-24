@@ -571,7 +571,7 @@
               <i class="fa-solid fa-server" aria-hidden="true"></i>
             </div>
             <div class="proyecto-contenido">
-              <h4 class="proyecto-titulo">Implementación de Servidor Linux</h4>
+              <h3 class="proyecto-titulo">Implementación de Servidor Linux</h3>
               <p class="proyecto-descripcion">Configuración completa de un servidor Ubuntu con servicios de red básicos.</p>
               <div class="proyecto-tech">
                 <span class="tech-tag">Linux</span>
@@ -587,7 +587,7 @@
               <i class="fa-solid fa-shield-alt" aria-hidden="true"></i>
             </div>
             <div class="proyecto-contenido">
-              <h4 class="proyecto-titulo">Auditoría de Seguridad</h4>
+              <h3 class="proyecto-titulo">Auditoría de Seguridad</h3>
               <p class="proyecto-descripcion">Análisis de vulnerabilidades en una red local y propuesta de medidas de seguridad.</p>
               <div class="proyecto-tech">
                 <span class="tech-tag">Ciberseguridad</span>
@@ -603,7 +603,7 @@
               <i class="fa-solid fa-network-wired" aria-hidden="true"></i>
             </div>
             <div class="proyecto-contenido">
-              <h4 class="proyecto-titulo">Diseño de Red LAN</h4>
+              <h3 class="proyecto-titulo">Diseño de Red LAN</h3>
               <p class="proyecto-descripcion">Planificación e implementación de una red de área local para pequeña empresa.</p>
               <div class="proyecto-tech">
                 <span class="tech-tag">Redes</span>
@@ -1212,6 +1212,7 @@
           font-weight: 800;
           margin-bottom: 12px;
           font-size: 1.4rem;
+          margin-top: 0;
         }
         
         .proyecto-descripcion {
@@ -1413,62 +1414,67 @@
           }
           .barra_lateral { backdrop-filter: none; }
           .boton, .avatar, .proyecto-card, .tarjeta { transition: transform .2s ease, box-shadow .2s ease; }
+          /* Optimizar para móvil: reducir animaciones complejas */
+          .barra > span::after { display: none; }
+          .enlace_navegacion::after { transition: none; }
+          .tarjeta::before { display: none; }
+          .proyecto-imagen::after { display: none; }
         }
-          
+
           .titulo {
             font-size: 2.5rem;
           }
-          
+
           .subtitulo {
             font-size: 1.2rem;
           }
-          
+
           .descripcion {
             font-size: 1rem;
           }
-          
+
           section {
             padding: 25px 20px;
           }
-          
+
           .tarjeta {
             padding: 20px;
           }
-          
+
           .titulo_seccion {
             font-size: 1.8rem;
           }
-          
+
           .tarjeta_cronologia {
             padding: 16px 18px;
           }
-          
+
           .titulo_cronologia {
             font-size: 1.2rem;
           }
-          
+
           .subtitulo_cronologia {
             font-size: 1rem;
           }
-          
+
           .chip {
             font-size: 0.95rem;
             padding: 10px 14px;
           }
-          
+
           .boton {
             padding: 14px 20px;
             font-size: 1rem;
           }
-          
+
           .avatar {
             max-width: 320px;
           }
-          
+
           .barra_lateral {
             padding: 12px;
           }
-          
+
           .enlace_navegacion {
             height: 44px;
             width: 44px;
@@ -1547,6 +1553,73 @@
             height: 50px;
             right: 16px;
             bottom: 16px;
+          }
+
+          /* Más optimizaciones para móviles pequeños */
+          .progreso-asir {
+            margin-top: 20px;
+            padding: 16px;
+          }
+
+          .progreso-header {
+            margin-bottom: 12px;
+          }
+
+          .progreso-titulo, .progreso-porcentaje {
+            font-size: 1.2rem;
+          }
+
+          .proyectos-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+
+          .proyecto-card {
+            max-width: 100%;
+          }
+
+          .proyecto-imagen {
+            height: 160px;
+          }
+
+          .proyecto-contenido {
+            padding: 16px;
+          }
+
+          .proyecto-titulo {
+            font-size: 1.3rem;
+          }
+
+          .proyecto-descripcion {
+            font-size: 1rem;
+          }
+
+          .contacto-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+
+          .contacto-item {
+            padding: 14px;
+          }
+
+          .contacto-icono {
+            width: 44px;
+            height: 44px;
+            font-size: 1.1rem;
+          }
+
+          .volver_arriba {
+            width: 46px;
+            height: 46px;
+            right: 14px;
+            bottom: 14px;
+          }
+
+          .theme-btn {
+            width: 44px;
+            height: 44px;
+            font-size: 16px;
           }
         }
 
