@@ -85,6 +85,9 @@
     html { 
       scroll-behavior: smooth; 
       font-size: 16px;
+      text-rendering: optimizeLegibility;
+      -webkit-text-size-adjust: 100%;
+      font-synthesis-weight: none;
     }
     
     /* Estilos críticos para el renderizado inicial */
@@ -100,6 +103,7 @@
       line-height: 1.7;
       font-size: var(--text-md);
       transition: background 300ms ease;
+      font-size-adjust: 0.5;
     }
     
     /* Barra lateral optimizada */
@@ -148,6 +152,18 @@
       position: relative;
       will-change: transform, opacity;
       font-size: 20px;
+    }
+    /* Reservar espacio para iconos y evitar CLS mientras carga Font Awesome */
+    .enlace_navegacion i,
+    .contacto-icono i,
+    .proyecto-imagen i,
+    .boton i {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1em;
+      vertical-align: middle;
+      flex-shrink: 0;
     }
     
     .enlace_navegacion:hover,
@@ -230,6 +246,8 @@
       margin: 0 0 12px;
       color: var(--text);
       line-height: 1.1;
+      font-size-adjust: 0.48;
+      min-height: 4.6rem; /* reserva para evitar micro CLS al swap de fuentes */
     }
     
     .subtitulo {
@@ -237,6 +255,7 @@
       margin: 0 0 24px;
       font-size: 1.6rem;
       font-weight: 600;
+      min-height: 1.8rem;
     }
     
     .descripcion {
@@ -245,6 +264,7 @@
       margin-bottom: 28px;
       font-size: 1.2rem;
       line-height: 1.8;
+      min-height: 1.8rem;
     }
     
     .llamado_accion {
@@ -1379,14 +1399,17 @@
           
           .titulo {
             font-size: 3rem;
+            min-height: 3.4rem;
           }
           
           .subtitulo {
             font-size: 1.3rem;
+            min-height: 1.5rem;
           }
           
           .descripcion {
             font-size: 1.1rem;
+            min-height: 1.6rem;
           }
           
           section {
@@ -1447,14 +1470,17 @@
 
           .titulo {
             font-size: 2.5rem;
+            min-height: 2.9rem;
           }
 
           .subtitulo {
             font-size: 1.2rem;
+            min-height: 1.4rem;
           }
 
           .descripcion {
             font-size: 1rem;
+            min-height: 1.5rem;
           }
 
           section {
@@ -1514,14 +1540,17 @@
 
           .titulo {
             font-size: 2.3rem;
+            min-height: 2.7rem;
           }
 
           .subtitulo {
             font-size: 1.15rem;
+            min-height: 1.35rem;
           }
 
           .descripcion {
             font-size: 0.98rem;
+            min-height: 1.45rem;
           }
 
           section {
@@ -1655,14 +1684,17 @@
 
           .titulo {
             font-size: 2.2rem;
+            min-height: 2.6rem;
           }
 
           .subtitulo {
             font-size: 1.1rem;
+            min-height: 1.3rem;
           }
 
           .descripcion {
             font-size: 0.95rem;
+            min-height: 1.4rem;
           }
 
           section {
