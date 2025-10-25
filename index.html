@@ -767,7 +767,7 @@
     <button id="lightModeBtn" aria-label="Activar modo claro" class="theme-btn"><i class="fa-solid fa-sun" aria-hidden="true"></i></button>
   </div>
 
-  <!-- Script optimizado -->
+  <!-- Script optimizado para eliminar reflows forzados -->
   <script>
     // Evitar CLS por fuentes: fuerza font-display: swap
     (function(){
@@ -1731,7 +1731,9 @@
       loadDeferredResources();
     }
 
-    // El resto del código JavaScript permanece igual pero optimizado
+    // ========== OPTIMIZACIONES PARA ELIMINAR REFLOWS FORZADOS ==========
+    
+    // Usar requestAnimationFrame para agrupar lecturas de propiedades geométricas
     const addPassive = (el, evt, handler) => el.addEventListener(evt, handler, { passive: true });
     let shimmer = false;
     
@@ -1739,6 +1741,7 @@
     let currentSection = 'inicio';
     let isScrolling = false;
     let scrollTimeout;
+    let sectionPositions = null; // Cache para posiciones de secciones
 
     const enlaces = document.querySelectorAll('.enlace_navegacion');
     const secciones = [
@@ -1752,6 +1755,39 @@
     ].filter(Boolean);
 
     const seccionPorId = new Map(secciones.map(s => [`#${s.id}`, s]));
+
+    // Función para cachear posiciones de secciones (evita reflows)
+    function cacheSectionPositions() {
+      sectionPositions = new Map();
+      secciones.forEach(section => {
+        // Usar getBoundingClientRect una sola vez y cachear
+        const rect = section.getBoundingClientRect();
+        sectionPositions.set(section.id, {
+          top: rect.top + window.pageYOffset,
+          height: rect.height,
+          middle: rect.top + window.pageYOffset + (rect.height / 2)
+        });
+      });
+    }
+
+    // Inicializar cache de posiciones
+    window.addEventListener('load', () => {
+      // Esperar un frame para que el layout esté estable
+      requestAnimationFrame(() => {
+        cacheSectionPositions();
+      });
+    });
+
+    // Recalcular cache en resize (con debounce)
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        requestAnimationFrame(() => {
+          cacheSectionPositions();
+        });
+      }, 250);
+    });
 
     // Función mejorada para actualizar navegación
     const actualizarActiva = (hash) => {
@@ -1825,30 +1861,28 @@
       }
     }));
 
-    // Detectar scroll manual para evitar conflictos - MEJORADO
+    // Detectar scroll manual usando cache para evitar reflows
     window.addEventListener('scroll', () => {
       if (isScrolling) return;
       
       // Limitar la frecuencia de actualización durante el scroll
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
-        // Forzar actualización durante scroll manual
-        const scrollPos = window.scrollY + (window.innerHeight * 0.3); // Ajustado para mejor detección
+        // Usar cache en lugar de consultar propiedades geométricas directamente
+        if (!sectionPositions) return;
+        
+        const scrollPos = window.scrollY + (window.innerHeight * 0.3);
         
         let current = 'inicio';
         let minDistance = Infinity;
         
-        for (const section of secciones) {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.offsetHeight;
-          const sectionMiddle = sectionTop + (sectionHeight / 2);
-          
+        for (const [sectionId, position] of sectionPositions) {
           // Calcular distancia desde el punto medio de la sección a la posición actual
-          const distance = Math.abs(sectionMiddle - scrollPos);
+          const distance = Math.abs(position.middle - scrollPos);
           
           if (distance < minDistance) {
             minDistance = distance;
-            current = section.id;
+            current = sectionId;
           }
         }
         
@@ -1859,43 +1893,61 @@
       }, 50); // Reducido para mayor responsividad
     });
 
+    // Optimización de barras de progreso
     const barras = document.querySelectorAll('.barra > span');
     const obsBarras = new IntersectionObserver((entries) => {
       entries.forEach(en => {
         if (en.isIntersecting) {
-          const w = getComputedStyle(en.target).getPropertyValue('--w') || '0%';
-          en.target.style.width = w.trim();
-          obsBarras.unobserve(en.target);
+          // Usar requestAnimationFrame para evitar reflow forzado
+          requestAnimationFrame(() => {
+            const w = getComputedStyle(en.target).getPropertyValue('--w') || '0%';
+            en.target.style.width = w.trim();
+            obsBarras.unobserve(en.target);
+          });
         }
       });
     }, { threshold: 0.4 });
     barras.forEach(b => obsBarras.observe(b));
 
+    // Optimización de modales
     const modal = document.getElementById('modal');
     const imagen_modal = document.getElementById('modalImg');
     document.querySelectorAll('[data-img]').forEach(boton => {
       boton.addEventListener('click', () => {
-        imagen_modal.loading = 'lazy';
-        imagen_modal.decoding = 'async';
-        imagen_modal.src = boton.dataset.img;
-        modal.style.display = 'flex';
+        // Usar requestAnimationFrame para mostrar el modal
+        requestAnimationFrame(() => {
+          imagen_modal.loading = 'lazy';
+          imagen_modal.decoding = 'async';
+          imagen_modal.src = boton.dataset.img;
+          modal.style.display = 'flex';
+        });
       });
     });
     document.getElementById('closeModal').addEventListener('click', () => {
-      modal.style.display = 'none';
-      imagen_modal.src = '';
+      requestAnimationFrame(() => {
+        modal.style.display = 'none';
+        imagen_modal.src = '';
+      });
     });
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
-        modal.style.display = 'none';
-        imagen_modal.src = '';
+        requestAnimationFrame(() => {
+          modal.style.display = 'none';
+          imagen_modal.src = '';
+        });
       }
     });
 
+    // Optimización del botón "volver arriba"
     const volver_arriba = document.getElementById('toTop');
+    let scrollRafId;
     addPassive(window, 'scroll', () => {
-      if (window.scrollY > 300) volver_arriba.classList.add('show');
-      else volver_arriba.classList.remove('show');
+      // Usar requestAnimationFrame para agrupar las lecturas de scrollY
+      if (scrollRafId) cancelAnimationFrame(scrollRafId);
+      scrollRafId = requestAnimationFrame(() => {
+        if (window.scrollY > 300) volver_arriba.classList.add('show');
+        else volver_arriba.classList.remove('show');
+      });
     });
     volver_arriba.addEventListener('click', () => {
       isScrolling = true;
@@ -1903,6 +1955,7 @@
       setTimeout(() => { isScrolling = false; }, 800);
     });
 
+    // Optimización del cambio de tema
     const darkModeBtn = document.getElementById('darkModeBtn');
     const lightModeBtn = document.getElementById('lightModeBtn');
 
@@ -1939,22 +1992,30 @@
     let isDarkMode = true; // Default to dark mode
 
     // Apply dark theme by default on page load
-    Object.entries(darkTheme).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));
-    document.body.classList.remove('light-mode');
-    updateButtonStates();
-
-    darkModeBtn.addEventListener('click', () => {
-      isDarkMode = true;
+    requestAnimationFrame(() => {
       Object.entries(darkTheme).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));
       document.body.classList.remove('light-mode');
       updateButtonStates();
     });
 
+    darkModeBtn.addEventListener('click', () => {
+      isDarkMode = true;
+      // Agrupar cambios de estilo en un frame
+      requestAnimationFrame(() => {
+        Object.entries(darkTheme).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));
+        document.body.classList.remove('light-mode');
+        updateButtonStates();
+      });
+    });
+
     lightModeBtn.addEventListener('click', () => {
       isDarkMode = false;
-      Object.entries(lightTheme).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));
-      document.body.classList.add('light-mode');
-      updateButtonStates();
+      // Agrupar cambios de estilo en un frame
+      requestAnimationFrame(() => {
+        Object.entries(lightTheme).forEach(([k,v])=>document.documentElement.style.setProperty(k,v));
+        document.body.classList.add('light-mode');
+        updateButtonStates();
+      });
     });
 
     function updateButtonStates() {
@@ -1967,20 +2028,27 @@
       }
     }
 
+    // Optimización del modal de contacto
     const contactModal = document.getElementById('contactModal');
     const contactForm = document.getElementById('contactForm');
     const openContactBtn = document.getElementById('openContactForm');
     if (openContactBtn) {
       openContactBtn.addEventListener('click', () => {
-        contactModal.style.display = 'flex';
+        requestAnimationFrame(() => {
+          contactModal.style.display = 'flex';
+        });
       });
     }
     document.getElementById('closeContactModal').addEventListener('click', () => {
-      contactModal.style.display = 'none';
+      requestAnimationFrame(() => {
+        contactModal.style.display = 'none';
+      });
     });
     contactModal.addEventListener('click', (e) => {
       if (e.target === contactModal) {
-        contactModal.style.display = 'none';
+        requestAnimationFrame(() => {
+          contactModal.style.display = 'none';
+        });
       }
     });
     contactForm.addEventListener('submit', (e) => {
@@ -1991,10 +2059,13 @@
       const message = formData.get('message');
       const mailtoLink = `mailto:sarasolera16@gmail.com?subject=Mensaje de ${name}&body=Nombre: ${name}%0AEmail: ${email}%0A%0A${message}`;
       window.location.href = mailtoLink;
-      contactModal.style.display = 'none';
-      contactForm.reset();
+      requestAnimationFrame(() => {
+        contactModal.style.display = 'none';
+        contactForm.reset();
+      });
     });
 
+    // Optimización de animaciones de entrada
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -2002,9 +2073,12 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          observer.unobserve(entry.target);
+          // Usar requestAnimationFrame para las animaciones
+          requestAnimationFrame(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          });
         }
       });
     }, observerOptions);
@@ -2015,6 +2089,7 @@
       observer.observe(card);
     });
 
+    // Optimización del efecto de seguimiento del mouse
     let rafId;
     const onMove = (x,y) => {
       document.documentElement.style.setProperty('--spot-x', x+'px');
@@ -2029,7 +2104,9 @@
     addPassive(window, 'keydown', (e) => {
       if (e.key.toLowerCase() === 's') {
         shimmer = !shimmer;
-        document.documentElement.style.setProperty('--spot-intensity', shimmer ? '0.28' : '0');
+        requestAnimationFrame(() => {
+          document.documentElement.style.setProperty('--spot-intensity', shimmer ? '0.28' : '0');
+        });
       }
     });
 
@@ -2038,6 +2115,7 @@
       shimmer = false;
     }
 
+    // Optimización de partículas
     function crearParticulas() {
       const contenedor = document.getElementById('particulas');
       const cantidad = Math.max(16, Math.min(28, Math.round(window.innerWidth / 80)));
@@ -2061,7 +2139,11 @@
         document.head.appendChild(style);
         frag.appendChild(p);
       }
-      contenedor.appendChild(frag);
+      
+      // Usar requestAnimationFrame para agregar las partículas
+      requestAnimationFrame(() => {
+        contenedor.appendChild(frag);
+      });
     }
 
     if ('requestIdleCallback' in window) {
