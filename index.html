@@ -59,11 +59,11 @@
       --shadow: 0 25px 50px rgba(0,0,0,.1);
       --transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
       --glow: 0 0 30px rgba(233, 30, 99, 0.25);
-      --text-xl: 1.5rem;
-      --text-lg: 1.25rem;
-      --text-md: 1.125rem;
-      --text-sm: 1rem;
-      --text-xs: 0.875rem;
+      --text-xl: 2.2rem; /* Aumentado de 1.8rem */
+      --text-lg: 1.6rem; /* Aumentado de 1.4rem */
+      --text-md: 1.4rem; /* Aumentado de 1.2rem */
+      --text-sm: 1.2rem; /* Aumentado de 1.05rem */
+      --text-xs: 1.1rem; /* Aumentado de 0.95rem */
       --spot-x: 50vw;
       --spot-y: 50vh;
       --spot-size: 600px;
@@ -84,7 +84,7 @@
     
     html { 
       scroll-behavior: smooth; 
-      font-size: 16px;
+      font-size: 19px; /* Aumentado de 17px para hacer todo más grande */
       text-rendering: optimizeLegibility;
       -webkit-text-size-adjust: 100%;
       font-synthesis-weight: none;
@@ -100,8 +100,8 @@
         radial-gradient(1200px 600px at 110% 10%, rgba(156, 39, 176, 0.06), transparent 60%),
         var(--bg);
       overflow-x: hidden;
-      line-height: 1.7;
-      font-size: var(--text-md);
+      line-height: 1.75;
+      font-size: var(--text-lg);
       transition: background 300ms ease;
       font-size-adjust: 0.5;
     }
@@ -110,12 +110,12 @@
     .barra_lateral {
       position: fixed;
       inset: 0 auto 0 0;
-      width: 90px;
+      width: 100px; /* Aumentado de 90px */
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 18px;
-      padding: 22px 12px;
+      gap: 20px; /* Aumentado de 18px */
+      padding: 25px 15px; /* Aumentado de 22px 12px */
       background: var(--elev);
       border-right: 1px solid rgba(0,0,0,.1);
       backdrop-filter: blur(16px);
@@ -125,9 +125,9 @@
     }
     
     .logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
+      width: 55px; /* Aumentado de 48px */
+      height: 55px; /* Aumentado de 48px */
+      border-radius: 16px; /* Aumentado de 14px */
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       box-shadow: var(--glow);
       display: flex;
@@ -135,7 +135,7 @@
       justify-content: center;
       color: white;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 20px; /* Aumentado de 18px */
     }
     
     .enlace_navegacion {
@@ -143,15 +143,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 52px;
-      border-radius: 14px;
+      height: 65px; /* Aumentado de 60px */
+      border-radius: 18px; /* Aumentado de 16px */
       color: var(--text);
       text-decoration: none;
-      opacity: .85;
+      opacity: .9;
       transition: var(--transition);
       position: relative;
       will-change: transform, opacity;
-      font-size: 20px;
+      font-size: 24px; /* Aumentado de 22px */
     }
     /* Reservar espacio para iconos y evitar CLS mientras carga Font Awesome */
     .enlace_navegacion i,
@@ -183,7 +183,7 @@
       left: 0;
       top: 50%;
       transform: translateY(-50%);
-      width: 4px;
+      width: 5px; /* Aumentado de 4px */
       height: 0;
       background: linear-gradient(to bottom, var(--primary), var(--secondary));
       border-radius: 0 6px 6px 0;
@@ -195,7 +195,7 @@
     }
     
     main {
-      margin-left: 90px;
+      margin-left: 100px; /* Aumentado de 90px */
     }
     
     /* Hero section optimizada */
@@ -206,7 +206,7 @@
       gap: 40px;
       align-items: center;
       padding: 80px 40px 40px;
-      max-width: 1300px;
+      max-width: 1440px;
       margin: 0 auto;
       position: relative;
     }
@@ -215,7 +215,7 @@
       background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
       border: 1px solid rgba(255,255,255,.12);
       border-radius: var(--radius-xl);
-      padding: 36px;
+      padding: 40px; /* Aumentado de 36px */
       box-shadow: var(--shadow);
       backdrop-filter: blur(15px);
       position: relative;
@@ -241,19 +241,19 @@
     
     .titulo {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 4rem;
+      font-size: 4.5rem; /* Aumentado de 4rem */
       letter-spacing: -1px;
-      margin: 0 0 12px;
+      margin: 0 0 15px; /* Aumentado de 12px */
       color: var(--text);
       line-height: 1.1;
       font-size-adjust: 0.48;
-      min-height: 4.6rem; /* reserva para evitar micro CLS al swap de fuentes */
+      min-height: 4.6rem;
     }
     
     .subtitulo {
       color: var(--text);
-      margin: 0 0 24px;
-      font-size: 1.6rem;
+      margin: 0 0 28px; /* Aumentado de 24px */
+      font-size: 1.8rem; /* Aumentado de 1.6rem */
       font-weight: 600;
       min-height: 1.8rem;
     }
@@ -261,22 +261,22 @@
     .descripcion {
       color: var(--text);
       opacity: .9;
-      margin-bottom: 28px;
-      font-size: 1.2rem;
+      margin-bottom: 32px; /* Aumentado de 28px */
+      font-size: 1.4rem; /* Aumentado de 1.2rem */
       line-height: 1.8;
       min-height: 1.8rem;
     }
     
     .llamado_accion {
       display: flex;
-      gap: 16px;
-      margin-top: 32px;
+      gap: 18px; /* Aumentado de 16px */
+      margin-top: 36px; /* Aumentado de 32px */
     }
     
     .boton {
       border: 0;
-      border-radius: 16px;
-      padding: 16px 24px;
+      border-radius: 20px; /* Aumentado de 18px */
+      padding: 20px 32px; /* Aumentado de 18px 28px */
       background: var(--primary);
       color: white;
       cursor: pointer;
@@ -284,12 +284,13 @@
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      font-weight: 600;
+      gap: 14px; /* Aumentado de 12px */
+      font-weight: 700;
       position: relative;
       overflow: hidden;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,.2);
+      font-size: 1.25rem; /* Aumentado de 1.15rem */
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
+      min-height: 58px; /* Aumentado de 52px */
     }
     
     .boton::before {
@@ -329,17 +330,17 @@
     
     .avatar {
       width: 100%;
-      max-width: 400px;
+      max-width: 450px; /* Aumentado de 400px */
       aspect-ratio: 1 / 1;
-      border-radius: 28px;
+      border-radius: 32px; /* Aumentado de 28px */
       object-fit: cover;
-      border: 6px solid rgba(255,255,255,.2);
+      border: 8px solid rgba(255,255,255,.2); /* Aumentado de 6px */
       box-shadow: var(--glow);
       transition: var(--transition);
       filter: brightness(1.05) contrast(1.05);
       content-visibility: auto;
       contain-intrinsic-size: 400px 400px;
-      background-color: #e9ecef; /* evita CLS durante la carga */
+      background-color: #e9ecef;
     }
     
     .avatar:hover {
@@ -742,8 +743,8 @@
     </section>
 
     <footer style="text-align:center; color:var(--muted); padding:40px 0 100px">
-      <p style="font-size: 1.2rem;">© 2025 Sara Solera Moreno</p>
-      <p style="font-size: 1.1rem; margin-top: 15px;">Actualmente cursando <span class="texto-destacado">Administración de Sistemas Informáticos en Red</span></p>
+      <p style="font-size: 1.4rem;">© 2025 Sara Solera Moreno</p>
+      <p style="font-size: 1.3rem; margin-top: 15px;">Actualmente cursando <span class="texto-destacado">Administración de Sistemas Informáticos en Red</span></p>
     </footer>
   </main>
 
@@ -786,6 +787,29 @@
     <button id="darkModeBtn" aria-label="Activar modo oscuro" class="theme-btn active"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
     <button id="lightModeBtn" aria-label="Activar modo claro" class="theme-btn"><i class="fa-solid fa-sun" aria-hidden="true"></i></button>
   </div>
+  <style>
+    /* Botones de tema: móviles fijados sobre la imagen; en pantallas grandes NO fijados */
+    @media (max-width: 768px) {
+      .foto_hero { position: relative; }
+      #themeButtons {
+        position: absolute !important;
+        top: 10px !important;
+        right: 10px !important;
+        left: auto !important;
+        z-index: 101 !important;
+      }
+    }
+    @media (min-width: 769px) {
+      #themeButtons {
+        position: fixed !important; /* se mantiene en la esquina de la ventana, no sobre la imagen */
+        top: 24px !important;
+        right: 24px !important;
+      }
+    }
+
+    .tarjeta_cronologia ul { padding-left: 1.2rem; margin: 8px 0 0 0; overflow-wrap: anywhere; }
+    .tarjeta_cronologia li { margin-left: 1rem; }
+  </style>
 
   <!-- Script optimizado para eliminar reflows forzados -->
   <script>
@@ -825,7 +849,7 @@
         /* Resto de estilos CSS que no son críticos para el renderizado inicial */
         section {
           padding: 40px 40px;
-          max-width: 1300px;
+          max-width: 1440px;
           margin: 0 auto;
         }
         
@@ -838,7 +862,7 @@
           background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
           border: 1px solid rgba(255,255,255,.12);
           border-radius: var(--radius-lg);
-          padding: 28px;
+          padding: 32px; /* Aumentado de 28px */
           box-shadow: var(--shadow);
           backdrop-filter: blur(15px);
           transition: var(--transition);
@@ -875,7 +899,7 @@
         .titulo_seccion {
           font-family: 'Space Grotesk', sans-serif;
           margin: 0 0 20px;
-          font-size: 2.2rem;
+          font-size: 2.4rem; /* Aumentado de 2.2rem */
           display: flex;
           align-items: center;
           gap: 12px;
@@ -898,11 +922,11 @@
           justify-content: space-between;
           font-weight: 700;
           margin-bottom: 8px;
-          font-size: 1.2rem;
+          font-size: 1.4rem; /* Aumentado de 1.2rem */
         }
         
         .barra {
-          height: 12px;
+          height: 14px; /* Aumentado de 12px */
           background: rgba(255,255,255,.1);
           border-radius: 999px;
           overflow: hidden;
@@ -981,7 +1005,7 @@
           background: rgba(255,255,255,.06);
           border: 1px solid rgba(255,255,255,.1);
           border-radius: 16px;
-          padding: 18px 20px;
+          padding: 20px 22px; /* Aumentado de 18px 20px */
           transition: var(--transition);
         }
         
@@ -993,14 +1017,14 @@
         .titulo_cronologia {
           font-weight: 800;
           color: var(--text);
-          font-size: 1.3rem;
+          font-size: 1.5rem; /* Aumentado de 1.3rem */
           margin-bottom: 6px;
         }
         
         .subtitulo_cronologia {
           color: var(--muted);
           margin-bottom: 10px;
-          font-size: 1.1rem;
+          font-size: 1.2rem; /* Aumentado de 1.1rem */
         }
         
         .conjunto_chips {
@@ -1010,7 +1034,7 @@
         }
         
         .chip {
-          padding: 12px 16px;
+          padding: 14px 18px; /* Aumentado de 12px 16px */
           border-radius: 999px;
           background: rgba(255,255,255,.1);
           border: 2px solid var(--chip-border-color);
@@ -1019,7 +1043,7 @@
           display: flex;
           align-items: center;
           gap: 8px;
-          font-size: 1.1rem;
+          font-size: 1.2rem; /* Aumentado de 1.1rem */
         }
         
         .chip:hover {
@@ -1042,8 +1066,8 @@
           right: 24px;
           bottom: 24px;
           border-radius: 999px;
-          width: 56px;
-          height: 56px;
+          width: 60px; /* Aumentado de 56px */
+          height: 60px; /* Aumentado de 56px */
           display: grid;
           place-items: center;
           background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -1056,7 +1080,7 @@
           transform: translateY(15px);
           transition: var(--transition);
           z-index: 49;
-          font-size: 20px;
+          font-size: 22px; /* Aumentado de 20px */
         }
         
         .volver_arriba.show {
@@ -1073,8 +1097,8 @@
         .theme-btn {
           border: 0;
           border-radius: 50%;
-          width: 48px;
-          height: 48px;
+          width: 52px; /* Aumentado de 48px */
+          height: 52px; /* Aumentado de 48px */
           display: flex;
           align-items: center;
           justify-content: center;
@@ -1083,7 +1107,7 @@
           cursor: pointer;
           transition: var(--transition);
           box-shadow: 0 4px 15px rgba(0,0,0,.2);
-          font-size: 18px;
+          font-size: 20px; /* Aumentado de 18px */
         }
 
         .theme-btn:hover {
@@ -1114,13 +1138,13 @@
         .progreso-titulo {
           font-weight: 700;
           color: var(--secondary);
-          font-size: 1.3rem;
+          font-size: 1.4rem; /* Aumentado de 1.3rem */
         }
         
         .progreso-porcentaje {
           font-weight: 800;
           color: var(--secondary);
-          font-size: 1.3rem;
+          font-size: 1.4rem; /* Aumentado de 1.3rem */
         }
         
         .progreso-bar {
@@ -1227,15 +1251,16 @@
         }
         
         .proyecto-imagen {
-          height: 180px;
-          background: linear-gradient(135deg, var(--primary), var(--secondary));
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          font-size: 2.5rem;
-          position: relative;
-          overflow: hidden;
+        height: 200px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 3.5rem; /* Aumentado de 3rem */
+        position: relative;
+        overflow: hidden;
+        contain: content;
         }
         
         .proyecto-imagen::after {
@@ -1255,12 +1280,12 @@
         .proyecto-titulo {
           font-weight: 800;
           margin-bottom: 12px;
-          font-size: 1.4rem;
+          font-size: 1.5rem; /* Aumentado de 1.4rem */
           margin-top: 0;
         }
         
         .proyecto-descripcion {
-          font-size: 1.1rem;
+          font-size: 1.2rem; /* Aumentado de 1.1rem */
           color: var(--muted);
           margin-bottom: 20px;
           line-height: 1.6;
@@ -1290,7 +1315,7 @@
           display: flex;
           align-items: center;
           gap: 14px;
-          padding: 16px;
+          padding: 18px; /* Aumentado de 16px */
           background: rgba(255,255,255,.06);
           border-radius: var(--radius-md);
           transition: var(--transition);
@@ -1299,26 +1324,27 @@
           min-width: 0;
         }
         
-        .contacto-item:hover {
+        .contacto-item:hover, .contacto-item.hover, .contacto-item:focus-visible {
           background: rgba(255,255,255,.1);
           transform: translateY(-4px);
+          outline: none;
         }
         
         .contacto-icono {
-          width: 48px;
-          height: 48px;
+          width: 54px; /* Aumentado de 48px */
+          height: 54px; /* Aumentado de 48px */
           border-radius: 50%;
           background: linear-gradient(135deg, var(--primary), var(--secondary));
           display: flex;
           align-items: center;
           justify-content: center;
           color: white;
-          font-size: 1.2rem;
+          font-size: 1.4rem; /* Aumentado de 1.2rem */
           flex-shrink: 0;
         }
         
         .contacto-texto {
-          font-size: 1.1rem;
+          font-size: 1.2rem; /* Aumentado de 1.1rem */
           min-width: 0;
           width: 100%;
           overflow: hidden;
@@ -1348,27 +1374,28 @@
             width: 100%;
             flex-direction: row;
             justify-content: space-around;
-            padding: 14px;
+            padding: 8px; /* Aún más baja en móviles */
             background: rgba(16, 24, 38, 0.95);
             border-top: 1px solid rgba(255,255,255,.1);
             border-right: none;
-            backdrop-filter: blur(16px);
+            backdrop-filter: blur(10px);
             z-index: 60;
           }
           
           .enlace_navegacion {
-            height: 48px;
-            width: 48px;
+            height: 48px; /* Más bajo en móviles */
+            width: 48px; /* Más estrecho en móviles */
+            font-size: 22px; /* Icono algo más pequeño */
           }
           /* Ensure icon contrast on mobile bottom bar (dark background) */
           .barra_lateral .enlace_navegacion {
             color: #fff;
-            opacity: 0.9;
+            opacity: 0.95;
           }
           .barra_lateral .enlace_navegacion:focus-visible {
             outline: 2px solid #ffffff99;
             outline-offset: 2px;
-            border-radius: 12px;
+            border-radius: 14px;
           }
           
           .enlace_navegacion::after {
@@ -1384,11 +1411,11 @@
           }
           
           .titulo {
-            font-size: 3.5rem;
+            font-size: 4rem; /* Aumentado de 3.7rem */
           }
           
           .subtitulo {
-            font-size: 1.4rem;
+            font-size: 1.7rem; /* Aumentado de 1.5rem */
           }
         }
         
@@ -1398,17 +1425,17 @@
           }
           
           .titulo {
-            font-size: 3rem;
+            font-size: 3.5rem; /* Aumentado de 3rem */
             min-height: 3.4rem;
           }
           
           .subtitulo {
-            font-size: 1.3rem;
+            font-size: 1.5rem; /* Aumentado de 1.3rem */
             min-height: 1.5rem;
           }
           
           .descripcion {
-            font-size: 1.1rem;
+            font-size: 1.3rem; /* Aumentado de 1.1rem */
             min-height: 1.6rem;
           }
           
@@ -1417,11 +1444,11 @@
           }
           
           .tarjeta {
-            padding: 24px;
+            padding: 28px; /* Aumentado de 24px */
           }
           
           .titulo_seccion {
-            font-size: 2rem;
+            font-size: 2.2rem; /* Aumentado de 2rem */
           }
           
           .cuadricula {
@@ -1433,7 +1460,7 @@
           }
           
           .chip {
-            font-size: 1rem;
+            font-size: 1.1rem; /* Aumentado de 1rem */
           }
           
           .llamado_accion {
@@ -1454,32 +1481,35 @@
         @media (max-width: 768px) {
           /* Reducir efectos costosos en móvil para mejorar FP/FCP/LCP */
           .particulas { display: none; }
-          .tarjeta, .tarjeta_hero, .proyecto-card { backdrop-filter: none; }
+          .tarjeta, .tarjeta_hero, .proyecto-card { backdrop-filter: none; box-shadow: 0 3px 10px rgba(0,0,0,.16); }
           .hero {
             min-height: 70vh;
-            padding: 50px 20px;
+            padding: 56px 22px;
           }
           .barra_lateral { backdrop-filter: none; }
-          .boton, .avatar, .proyecto-card, .tarjeta { transition: transform .2s ease, box-shadow .2s ease; }
+          .boton, .avatar, .proyecto-card, .tarjeta { transition: transform .12s ease, box-shadow .12s ease; will-change: auto; }
           /* Optimizar para móvil: reducir animaciones complejas */
           .barra > span::after { display: none; }
           .enlace_navegacion::after { transition: none; }
           .tarjeta::before { display: none; }
           .proyecto-imagen::after { display: none; }
+          /* Aumentos específicos móvil */
+          .contacto-icono { width: 56px; height: 56px; font-size: 1.4rem; }
+          .contacto-item { padding: 16px; }
         }
 
           .titulo {
-            font-size: 2.5rem;
+            font-size: 3rem; /* Aumentado de 2.5rem */
             min-height: 2.9rem;
           }
 
           .subtitulo {
-            font-size: 1.2rem;
+            font-size: 1.4rem; /* Aumentado de 1.2rem */
             min-height: 1.4rem;
           }
 
           .descripcion {
-            font-size: 1rem;
+            font-size: 1.2rem; /* Aumentado de 1rem */
             min-height: 1.5rem;
           }
 
@@ -1488,33 +1518,33 @@
           }
 
           .tarjeta {
-            padding: 20px;
+            padding: 24px; /* Aumentado de 20px */
           }
 
           .titulo_seccion {
-            font-size: 1.8rem;
+            font-size: 2rem; /* Aumentado de 1.8rem */
           }
 
           .tarjeta_cronologia {
-            padding: 16px 18px;
+            padding: 18px 20px; /* Aumentado de 16px 18px */
           }
 
           .titulo_cronologia {
-            font-size: 1.2rem;
+            font-size: 1.4rem; /* Aumentado de 1.2rem */
           }
 
           .subtitulo_cronologia {
-            font-size: 1rem;
+            font-size: 1.2rem; /* Aumentado de 1rem */
           }
 
           .chip {
-            font-size: 0.95rem;
-            padding: 10px 14px;
+            font-size: 1.1rem; /* Aumentado de 0.95rem */
+            padding: 12px 16px; /* Aumentado de 10px 14px */
           }
 
           .boton {
-            padding: 14px 20px;
-            font-size: 1rem;
+            padding: 16px 22px; /* Aumentado de 14px 20px */
+            font-size: 1.1rem; /* Aumentado de 1rem */
           }
 
           .avatar {
@@ -1522,96 +1552,97 @@
           }
 
           .barra_lateral {
-            padding: 12px;
+            padding: 14px; /* Aumentado de 12px */
           }
 
           .enlace_navegacion {
-            height: 44px;
-            width: 44px;
-            font-size: 18px;
+            height: 52px; /* Aumentado de 44px */
+            width: 52px; /* Aumentado de 44px */
+            font-size: 22px; /* Aumentado de 18px */
           }
         }
         
         @media (max-width: 576px) {
           .hero {
             min-height: 65vh;
-            padding: 45px 18px;
+            padding: 48px 20px;
           }
 
           .titulo {
-            font-size: 2.3rem;
-            min-height: 2.7rem;
+            font-size: 3rem; /* Aumentado de 2.5rem */
+            min-height: 2.9rem;
           }
 
           .subtitulo {
-            font-size: 1.15rem;
-            min-height: 1.35rem;
+            font-size: 1.4rem; /* Aumentado de 1.2rem */
+            min-height: 1.4rem;
           }
 
           .descripcion {
-            font-size: 0.98rem;
-            min-height: 1.45rem;
+            font-size: 1.2rem; /* Aumentado de 1.05rem */
+            min-height: 1.5rem;
           }
 
           section {
-            padding: 22px 18px;
+            padding: 24px 20px;
           }
 
           .tarjeta {
-            padding: 20px;
+            padding: 24px; /* Aumentado de 22px */
           }
 
           .titulo_seccion {
-            font-size: 1.7rem;
+            font-size: 2rem; /* Aumentado de 1.8rem */
           }
 
           .tarjeta_cronologia {
-            padding: 15px 17px;
+            padding: 18px 20px; /* Aumentado de 16px 18px */
           }
 
           .titulo_cronologia {
-            font-size: 1.15rem;
+            font-size: 1.4rem; /* Aumentado de 1.2rem */
           }
 
           .subtitulo_cronologia {
-            font-size: 0.98rem;
+            font-size: 1.2rem; /* Aumentado de 1.05rem */
           }
 
           .chip {
-            font-size: 0.92rem;
-            padding: 9px 13px;
+            font-size: 1.1rem; /* Aumentado de 1rem */
+            padding: 12px 16px; /* Aumentado de 10px 14px */
           }
 
           .boton {
-            padding: 13px 19px;
-            font-size: 0.98rem;
+            padding: 17px 22px; /* Aumentado de 15px 20px */
+            font-size: 1.1rem; /* Aumentado de 1.05rem */
+            min-height: 58px; /* Aumentado de 54px */
           }
 
           .avatar {
-            max-width: 300px;
+            max-width: 320px;
           }
 
           .barra_lateral {
-            padding: 11px;
+            padding: 6px; /* Aún más baja en móviles pequeños */
           }
 
           .enlace_navegacion {
-            height: 42px;
-            width: 42px;
-            font-size: 17px;
+            height: 44px; /* Mínimo ergonómico táctil */
+            width: 44px;
+            font-size: 20px;
           }
 
           .volver_arriba {
-            width: 50px;
-            height: 50px;
+            width: 58px; /* Aumentado de 56px */
+            height: 58px; /* Aumentado de 56px */
             right: 16px;
             bottom: 16px;
           }
 
           /* Más optimizaciones para móviles pequeños */
           .progreso-asir {
-            margin-top: 20px;
-            padding: 16px;
+            margin-top: 22px;
+            padding: 18px;
           }
 
           .progreso-header {
@@ -1619,12 +1650,12 @@
           }
 
           .progreso-titulo, .progreso-porcentaje {
-            font-size: 1.2rem;
+            font-size: 1.3rem; /* Aumentado de 1.25rem */
           }
 
           .proyectos-grid {
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 22px;
           }
 
           .proyecto-card {
@@ -1632,124 +1663,126 @@
           }
 
           .proyecto-imagen {
-            height: 160px;
+            height: 180px;
+            font-size: 3.5rem; /* Aumentado de 3.2rem */
           }
 
           .proyecto-contenido {
-            padding: 16px;
+            padding: 18px;
           }
 
           .proyecto-titulo {
-            font-size: 1.3rem;
+            font-size: 1.45rem; /* Aumentado de 1.35rem */
           }
 
           .proyecto-descripcion {
-            font-size: 1rem;
+            font-size: 1.15rem; /* Aumentado de 1.05rem */
           }
 
           .contacto-grid {
             grid-template-columns: 1fr;
-            gap: 16px;
+            gap: 18px;
           }
 
           .contacto-item {
-            padding: 14px;
+            padding: 16px; /* Reducido */
           }
 
           .contacto-icono {
-            width: 44px;
-            height: 44px;
-            font-size: 1.1rem;
+            width: 54px; /* Reducido */
+            height: 54px; /* Reducido */
+            font-size: 1.35rem; /* Reducido */
           }
 
           .volver_arriba {
-            width: 46px;
-            height: 46px;
+            width: 56px; /* Aumentado de 52px */
+            height: 56px; /* Aumentado de 52px */
             right: 14px;
             bottom: 14px;
           }
 
           .theme-btn {
-            width: 44px;
-            height: 44px;
-            font-size: 16px;
+            width: 46px; /* Reducido para móvil pequeño */
+            height: 46px; /* Reducido para móvil pequeño */
+            font-size: 18px; /* Reducido */
           }
         }
 
         @media (max-width: 480px) {
           .hero {
             min-height: 60vh;
-            padding: 40px 15px;
+            padding: 44px 16px;
           }
 
           .titulo {
-            font-size: 2.2rem;
-            min-height: 2.6rem;
+            font-size: 3.2rem; /* Aumentado de 2.6rem */
+            min-height: 3rem;
           }
 
           .subtitulo {
-            font-size: 1.1rem;
-            min-height: 1.3rem;
+            font-size: 1.45rem; /* Aumentado de 1.25rem */
+            min-height: 1.45rem;
           }
 
           .descripcion {
-            font-size: 0.95rem;
-            min-height: 1.4rem;
+            font-size: 1.25rem; /* Aumentado de 1.08rem */
+            min-height: 1.5rem;
           }
 
           section {
-            padding: 20px 15px;
+            padding: 22px 16px;
           }
 
           .tarjeta {
-            padding: 18px;
+            padding: 22px; /* Aumentado de 20px */
           }
 
           .titulo_seccion {
-            font-size: 1.6rem;
+            font-size: 2.1rem; /* Aumentado de 1.85rem */
           }
 
           .tarjeta_cronologia {
-            padding: 14px 16px;
+            padding: 18px 20px; /* Aumentado de 16px 18px */
           }
 
           .titulo_cronologia {
-            font-size: 1.1rem;
+            font-size: 1.45rem; /* Aumentado de 1.22rem */
           }
 
           .subtitulo_cronologia {
-            font-size: 0.95rem;
+            font-size: 1.2rem; /* Aumentado de 1.05rem */
           }
 
           .chip {
-            font-size: 0.9rem;
-            padding: 8px 12px;
+            font-size: 1.1rem; /* Aumentado de 1rem */
+            padding: 12px 16px; /* Aumentado de 10px 14px */
           }
 
           .boton {
-            padding: 12px 18px;
-            font-size: 0.95rem;
+            padding: 18px 22px; /* Aumentado de 16px 20px */
+            font-size: 1.15rem; /* Aumentado de 1.08rem */
+            min-height: 60px; /* Aumentado de 56px */
           }
 
           .avatar {
-            max-width: 280px;
+            max-width: 320px;
           }
 
           .barra_lateral {
-            padding: 10px;
+            padding: 18px; /* Aumentado de 16px */
           }
 
           .enlace_navegacion {
-            height: 40px;
-            width: 40px;
-            font-size: 16px;
+            height: 74px; /* Aumentado de 64px */
+            width: 74px; /* Aumentado de 64px */
+            font-size: 32px; /* Aumentado de 28px */
           }
 
           .volver_arriba {
-            width: 48px;
-            height: 48px;
-            right: 15px;
-            bottom: 15px;
+            width: 60px; /* Aumentado de 58px */
+            height: 60px; /* Aumentado de 58px */
+            right: 16px;
+            bottom: 16px;
           }
         }
       `);
@@ -1775,7 +1808,8 @@
     let scrollTimeout;
     let sectionPositions = null; // Cache para posiciones de secciones
 
-    const enlaces = document.querySelectorAll('.enlace_navegacion');
+    const enlaces = document.querySelectorAll('.enlace_navegacion, .contacto-item');
+    const enlaceContacto = document.querySelector('.barra_lateral .enlace_navegacion.more');
     const secciones = [
       document.getElementById('inicio'),
       document.getElementById('habilidades'),
@@ -1857,6 +1891,22 @@
     });
 
     secciones.forEach(s => obsNav.observe(s));
+    if (enlaceContacto) {
+      const contactoSec = document.getElementById('contacto');
+      const obsContacto = new IntersectionObserver((entries)=>{
+        entries.forEach(en=>{
+          const visible = en.isIntersecting && en.intersectionRatio > 0.05;
+          enlaceContacto.classList.toggle('active', visible);
+        });
+      }, { root: null, rootMargin: '0px', threshold: [0, 0.05, 0.25, 0.5, 0.75, 1] });
+      if (contactoSec) obsContacto.observe(contactoSec);
+    }
+
+    // Mejorar activación de iconos en sección contacto (hover/touch feedback)
+    document.querySelectorAll('.contacto-item').forEach(item => {
+      item.addEventListener('touchstart', () => item.classList.add('hover'), { passive: true });
+      item.addEventListener('touchend', () => item.classList.remove('hover'), { passive: true });
+    });
 
     // Inicializar navegación basada en hash actual
     window.addEventListener('load', () => {
