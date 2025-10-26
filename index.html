@@ -11,14 +11,12 @@
   <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="CV — Sara Solera Moreno | ASIR" />
   <meta property="og:description" content="Futura Técnica Superior en Administración de Sistemas Informáticos en Red. Especializada en mantenimiento y reparación de equipos." />
   <meta property="og:url" content="https://curriculumsarasolera.github.io/" />
   <meta property="og:image" content="/og-image.jpg" />
   
-  <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:title" content="CV — Sara Solera Moreno | ASIR" />
   <meta property="twitter:description" content="Futura Técnica Superior en Administración de Sistemas Informáticos en Red. Especializada en mantenimiento y reparación de equipos." />
@@ -26,22 +24,18 @@
   
   <title>CV — Sara Solera Moreno | ASIR</title>
   
-  <!-- Preconexiones optimizadas -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   
-  <!-- Precarga de recursos críticos -->
   <link rel="preload" as="image" href="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103" imagesrcset="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103 400w" imagesizes="(max-width: 576px) 60vw, (max-width: 992px) 40vw, 400px" fetchpriority="high">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"></noscript>
   
-  <!-- Font Awesome con carga diferida -->
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
   
-  <!-- Estilos críticos inline -->
-  <style>
+  <link rel="stylesheet" href="styles.css">
     /* Variables CSS optimizadas */
     :root {
       --bg: #fef7f0;
@@ -84,7 +78,8 @@
     
     html { 
       scroll-behavior: smooth; 
-      font-size: 19px; /* Aumentado de 17px para hacer todo más grande */
+      /* Base fluid: escala entre 17px y 19px según viewport */
+      font-size: clamp(17px, 1.1vw + 15px, 19px);
       text-rendering: optimizeLegibility;
       -webkit-text-size-adjust: 100%;
       font-synthesis-weight: none;
@@ -196,6 +191,9 @@
     
     main {
       margin-left: 100px; /* Aumentado de 90px */
+    }
+    @media (max-width: 1200px) {
+      main { margin-left: 0; }
     }
     
     /* Hero section optimizada */
@@ -415,9 +413,7 @@
     }
   </style>
   
-  <!-- Estilos no críticos cargados de forma diferida -->
-  <link rel="stylesheet" href="data:text/css;base64,LyogRXN0aWxvcyBubyBjcsOtdGljb3MgcGFyYSBldml0YXIgYmxvcXVlb3MgZGUgcmVuZGVyaXphZG8gKi8=" media="print" onload="this.media='all'">
-</head>
+  </head>
 <body itemscope itemtype="https://schema.org/Person">
   <script type="application/ld+json">
   {
@@ -475,7 +471,6 @@
         </div>
       </div>
       <div class="foto_hero">
-        <!-- IMAGEN LCP OPTIMIZADA: Eliminada carga diferida y agregada prioridad alta -->
         <img
           class="avatar"
           alt="Foto de perfil de Sara Solera Moreno"
@@ -788,31 +783,13 @@
     <button id="lightModeBtn" aria-label="Activar modo claro" class="theme-btn"><i class="fa-solid fa-sun" aria-hidden="true"></i></button>
   </div>
   <style>
-    /* Botones de tema: móviles fijados sobre la imagen; en pantallas grandes NO fijados */
-    @media (max-width: 768px) {
-      .foto_hero { position: relative; }
-      #themeButtons {
-        position: absolute !important;
-        top: 10px !important;
-        right: 10px !important;
-        left: auto !important;
-        z-index: 101 !important;
-      }
-    }
-    @media (min-width: 769px) {
-      #themeButtons {
-        position: fixed !important; /* se mantiene en la esquina de la ventana, no sobre la imagen */
-        top: 24px !important;
-        right: 24px !important;
-      }
-    }
-
+    @media (max-width: 768px) { .foto_hero { position: relative; } #themeButtons { position: absolute !important; top: 10px !important; right: 10px !important; left: auto !important; z-index: 101 !important; } }
+    @media (min-width: 769px) { #themeButtons { position: fixed !important; top: 24px !important; right: 24px !important; } }
     .tarjeta_cronologia ul { padding-left: 1.2rem; margin: 8px 0 0 0; overflow-wrap: anywhere; }
     .tarjeta_cronologia li { margin-left: 1rem; }
   </style>
 
-  <!-- Script optimizado para eliminar reflows forzados -->
-  <script>
+  <script src="script.js"></script>
     // Evitar CLS por fuentes: fuerza font-display: swap
     (function(){
       const l = document.querySelector('link[href*="fonts.googleapis.com"]');
@@ -1374,7 +1351,7 @@
             width: 100%;
             flex-direction: row;
             justify-content: space-around;
-            padding: 8px; /* Aún más baja en móviles */
+            padding: 6px; /* más baja en móviles/tablets */
             background: rgba(16, 24, 38, 0.95);
             border-top: 1px solid rgba(255,255,255,.1);
             border-right: none;
@@ -1383,9 +1360,9 @@
           }
           
           .enlace_navegacion {
-            height: 48px; /* Más bajo en móviles */
-            width: 48px; /* Más estrecho en móviles */
-            font-size: 22px; /* Icono algo más pequeño */
+            height: 44px; /* bajo */
+            width: 44px;
+            font-size: 20px;
           }
           /* Ensure icon contrast on mobile bottom bar (dark background) */
           .barra_lateral .enlace_navegacion {
@@ -1411,11 +1388,11 @@
           }
           
           .titulo {
-            font-size: 4rem; /* Aumentado de 3.7rem */
+            font-size: clamp(2.5rem, 5vw, 4rem);
           }
           
           .subtitulo {
-            font-size: 1.7rem; /* Aumentado de 1.5rem */
+            font-size: clamp(1.1rem, 2.2vw, 1.7rem);
           }
         }
         
@@ -1425,18 +1402,18 @@
           }
           
           .titulo {
-            font-size: 3.5rem; /* Aumentado de 3rem */
-            min-height: 3.4rem;
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            min-height: 3.0rem;
           }
           
           .subtitulo {
-            font-size: 1.5rem; /* Aumentado de 1.3rem */
-            min-height: 1.5rem;
+            font-size: clamp(1.05rem, 2.4vw, 1.5rem);
+            min-height: 1.3rem;
           }
           
           .descripcion {
-            font-size: 1.3rem; /* Aumentado de 1.1rem */
-            min-height: 1.6rem;
+            font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+            min-height: 1.4rem;
           }
           
           section {
@@ -1448,7 +1425,7 @@
           }
           
           .titulo_seccion {
-            font-size: 2.2rem; /* Aumentado de 2rem */
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
           }
           
           .cuadricula {
@@ -1460,7 +1437,7 @@
           }
           
           .chip {
-            font-size: 1.1rem; /* Aumentado de 1rem */
+            font-size: clamp(1rem, 2.2vw, 1.1rem);
           }
           
           .llamado_accion {
@@ -1486,7 +1463,7 @@
             min-height: 70vh;
             padding: 56px 22px;
           }
-          .barra_lateral { backdrop-filter: none; }
+          .barra_lateral { backdrop-filter: none; padding: 4px; }
           .boton, .avatar, .proyecto-card, .tarjeta { transition: transform .12s ease, box-shadow .12s ease; will-change: auto; }
           /* Optimizar para móvil: reducir animaciones complejas */
           .barra > span::after { display: none; }
@@ -1494,296 +1471,91 @@
           .tarjeta::before { display: none; }
           .proyecto-imagen::after { display: none; }
           /* Aumentos específicos móvil */
-          .contacto-icono { width: 56px; height: 56px; font-size: 1.4rem; }
-          .contacto-item { padding: 16px; }
-        }
+          .contacto-icono { width: 52px; height: 52px; font-size: 1.3rem; }
+          .contacto-item { padding: 14px; }
 
-          .titulo {
-            font-size: 3rem; /* Aumentado de 2.5rem */
-            min-height: 2.9rem;
-          }
-
-          .subtitulo {
-            font-size: 1.4rem; /* Aumentado de 1.2rem */
-            min-height: 1.4rem;
-          }
-
-          .descripcion {
-            font-size: 1.2rem; /* Aumentado de 1rem */
-            min-height: 1.5rem;
-          }
-
-          section {
-            padding: 25px 20px;
-          }
-
-          .tarjeta {
-            padding: 24px; /* Aumentado de 20px */
-          }
-
-          .titulo_seccion {
-            font-size: 2rem; /* Aumentado de 1.8rem */
-          }
-
-          .tarjeta_cronologia {
-            padding: 18px 20px; /* Aumentado de 16px 18px */
-          }
-
-          .titulo_cronologia {
-            font-size: 1.4rem; /* Aumentado de 1.2rem */
-          }
-
-          .subtitulo_cronologia {
-            font-size: 1.2rem; /* Aumentado de 1rem */
-          }
-
-          .chip {
-            font-size: 1.1rem; /* Aumentado de 0.95rem */
-            padding: 12px 16px; /* Aumentado de 10px 14px */
-          }
-
-          .boton {
-            padding: 16px 22px; /* Aumentado de 14px 20px */
-            font-size: 1.1rem; /* Aumentado de 1rem */
-          }
-
-          .avatar {
-            max-width: 320px;
-          }
-
-          .barra_lateral {
-            padding: 14px; /* Aumentado de 12px */
-          }
-
-          .enlace_navegacion {
-            height: 52px; /* Aumentado de 44px */
-            width: 52px; /* Aumentado de 44px */
-            font-size: 22px; /* Aumentado de 18px */
-          }
+          .titulo { font-size: clamp(2rem, 7vw, 3rem); min-height: 2.6rem; }
+          .subtitulo { font-size: clamp(1rem, 3.2vw, 1.4rem); min-height: 1.3rem; }
+          .descripcion { font-size: clamp(1rem, 3vw, 1.2rem); min-height: 1.4rem; }
+          section { padding: 25px 20px; }
+          .tarjeta { padding: 24px; }
+          .titulo_seccion { font-size: clamp(1.5rem, 4.4vw, 2rem); }
+          .tarjeta_cronologia { padding: 18px 20px; }
+          .titulo_cronologia { font-size: clamp(1.1rem, 3.6vw, 1.4rem); }
+          .subtitulo_cronologia { font-size: clamp(1rem, 3.2vw, 1.2rem); }
+          .chip { font-size: clamp(0.95rem, 3.2vw, 1.1rem); padding: 12px 16px; }
+          .boton { padding: 14px 20px; font-size: clamp(1rem, 3.2vw, 1.1rem); min-height: 48px; }
+          .avatar { max-width: 300px; }
+          .enlace_navegacion { height: 40px; width: 40px; font-size: 18px; }
         }
         
         @media (max-width: 576px) {
           .hero {
             min-height: 65vh;
-            padding: 48px 20px;
+            padding: 48px 16px;
           }
 
-          .titulo {
-            font-size: 3rem; /* Aumentado de 2.5rem */
-            min-height: 2.9rem;
-          }
+          .titulo { font-size: clamp(1.9rem, 8.2vw, 3rem); min-height: 2.6rem; }
+          .subtitulo { font-size: clamp(1rem, 3.6vw, 1.4rem); min-height: 1.3rem; }
+          .descripcion { font-size: clamp(0.98rem, 3.4vw, 1.2rem); min-height: 1.4rem; }
 
-          .subtitulo {
-            font-size: 1.4rem; /* Aumentado de 1.2rem */
-            min-height: 1.4rem;
-          }
+          section { padding: 22px 16px; }
+          .tarjeta { padding: 22px; }
+          .titulo_seccion { font-size: clamp(1.4rem, 5.4vw, 2rem); }
+          .tarjeta_cronologia { padding: 18px 20px; }
+          .titulo_cronologia { font-size: clamp(1.1rem, 4vw, 1.4rem); }
+          .subtitulo_cronologia { font-size: clamp(1rem, 3.6vw, 1.2rem); }
+          .chip { font-size: clamp(0.96rem, 3.6vw, 1.1rem); padding: 12px 16px; }
 
-          .descripcion {
-            font-size: 1.2rem; /* Aumentado de 1.05rem */
-            min-height: 1.5rem;
-          }
+          .boton { padding: 13px 18px; font-size: clamp(0.98rem, 3.6vw, 1.1rem); min-height: 44px; }
+          .avatar { max-width: 280px; }
 
-          section {
-            padding: 24px 20px;
-          }
+          .barra_lateral { padding: 4px; }
+          .enlace_navegacion { height: 38px; width: 38px; font-size: 18px; }
 
-          .tarjeta {
-            padding: 24px; /* Aumentado de 22px */
-          }
-
-          .titulo_seccion {
-            font-size: 2rem; /* Aumentado de 1.8rem */
-          }
-
-          .tarjeta_cronologia {
-            padding: 18px 20px; /* Aumentado de 16px 18px */
-          }
-
-          .titulo_cronologia {
-            font-size: 1.4rem; /* Aumentado de 1.2rem */
-          }
-
-          .subtitulo_cronologia {
-            font-size: 1.2rem; /* Aumentado de 1.05rem */
-          }
-
-          .chip {
-            font-size: 1.1rem; /* Aumentado de 1rem */
-            padding: 12px 16px; /* Aumentado de 10px 14px */
-          }
-
-          .boton {
-            padding: 17px 22px; /* Aumentado de 15px 20px */
-            font-size: 1.1rem; /* Aumentado de 1.05rem */
-            min-height: 58px; /* Aumentado de 54px */
-          }
-
-          .avatar {
-            max-width: 320px;
-          }
-
-          .barra_lateral {
-            padding: 6px; /* Aún más baja en móviles pequeños */
-          }
-
-          .enlace_navegacion {
-            height: 44px; /* Mínimo ergonómico táctil */
-            width: 44px;
-            font-size: 20px;
-          }
-
-          .volver_arriba {
-            width: 58px; /* Aumentado de 56px */
-            height: 58px; /* Aumentado de 56px */
-            right: 16px;
-            bottom: 16px;
-          }
+          .volver_arriba { width: 52px; height: 52px; right: 14px; bottom: 14px; }
 
           /* Más optimizaciones para móviles pequeños */
-          .progreso-asir {
-            margin-top: 22px;
-            padding: 18px;
-          }
+          .progreso-asir { margin-top: 20px; padding: 16px; }
+          .progreso-header { margin-bottom: 10px; }
+          .progreso-titulo, .progreso-porcentaje { font-size: clamp(1rem, 3.6vw, 1.3rem); }
 
-          .progreso-header {
-            margin-bottom: 12px;
-          }
+          .proyectos-grid { grid-template-columns: 1fr; gap: 18px; }
+          .proyecto-card { max-width: 100%; }
+          .proyecto-imagen { height: 160px; font-size: clamp(2.2rem, 10vw, 3.2rem); }
+          .proyecto-contenido { padding: 16px; }
+          .proyecto-titulo { font-size: clamp(1.2rem, 4.6vw, 1.45rem); }
+          .proyecto-descripcion { font-size: clamp(0.98rem, 3.8vw, 1.15rem); }
 
-          .progreso-titulo, .progreso-porcentaje {
-            font-size: 1.3rem; /* Aumentado de 1.25rem */
-          }
+          .contacto-grid { grid-template-columns: 1fr; gap: 16px; }
+          .contacto-item { padding: 14px; }
+          .contacto-icono { width: 50px; height: 50px; font-size: 1.2rem; }
 
-          .proyectos-grid {
-            grid-template-columns: 1fr;
-            gap: 22px;
-          }
-
-          .proyecto-card {
-            max-width: 100%;
-          }
-
-          .proyecto-imagen {
-            height: 180px;
-            font-size: 3.5rem; /* Aumentado de 3.2rem */
-          }
-
-          .proyecto-contenido {
-            padding: 18px;
-          }
-
-          .proyecto-titulo {
-            font-size: 1.45rem; /* Aumentado de 1.35rem */
-          }
-
-          .proyecto-descripcion {
-            font-size: 1.15rem; /* Aumentado de 1.05rem */
-          }
-
-          .contacto-grid {
-            grid-template-columns: 1fr;
-            gap: 18px;
-          }
-
-          .contacto-item {
-            padding: 16px; /* Reducido */
-          }
-
-          .contacto-icono {
-            width: 54px; /* Reducido */
-            height: 54px; /* Reducido */
-            font-size: 1.35rem; /* Reducido */
-          }
-
-          .volver_arriba {
-            width: 56px; /* Aumentado de 52px */
-            height: 56px; /* Aumentado de 52px */
-            right: 14px;
-            bottom: 14px;
-          }
-
-          .theme-btn {
-            width: 46px; /* Reducido para móvil pequeño */
-            height: 46px; /* Reducido para móvil pequeño */
-            font-size: 18px; /* Reducido */
-          }
+          .theme-btn { width: 44px; height: 44px; font-size: 18px; }
         }
 
         @media (max-width: 480px) {
-          .hero {
-            min-height: 60vh;
-            padding: 44px 16px;
-          }
+          .hero { min-height: 58vh; padding: 42px 14px; }
 
-          .titulo {
-            font-size: 3.2rem; /* Aumentado de 2.6rem */
-            min-height: 3rem;
-          }
+          .titulo { font-size: clamp(1.8rem, 9vw, 3.2rem); min-height: 2.4rem; }
+          .subtitulo { font-size: clamp(0.98rem, 4vw, 1.3rem); min-height: 1.2rem; }
+          .descripcion { font-size: clamp(0.95rem, 4vw, 1.2rem); min-height: 1.3rem; }
 
-          .subtitulo {
-            font-size: 1.45rem; /* Aumentado de 1.25rem */
-            min-height: 1.45rem;
-          }
+          section { padding: 20px 14px; }
+          .tarjeta { padding: 20px; }
+          .titulo_seccion { font-size: clamp(1.3rem, 6vw, 1.9rem); }
+          .tarjeta_cronologia { padding: 16px 18px; }
+          .titulo_cronologia { font-size: clamp(1.05rem, 4.6vw, 1.35rem); }
+          .subtitulo_cronologia { font-size: clamp(0.98rem, 4.2vw, 1.15rem); }
+          .chip { font-size: clamp(0.94rem, 4.2vw, 1.08rem); padding: 10px 14px; }
 
-          .descripcion {
-            font-size: 1.25rem; /* Aumentado de 1.08rem */
-            min-height: 1.5rem;
-          }
+          .boton { padding: 12px 16px; font-size: clamp(0.96rem, 4vw, 1.08rem); min-height: 42px; }
+          .avatar { max-width: 260px; }
 
-          section {
-            padding: 22px 16px;
-          }
+          .barra_lateral { padding: 3px; }
+          .enlace_navegacion { height: 36px; width: 36px; font-size: 17px; }
 
-          .tarjeta {
-            padding: 22px; /* Aumentado de 20px */
-          }
-
-          .titulo_seccion {
-            font-size: 2.1rem; /* Aumentado de 1.85rem */
-          }
-
-          .tarjeta_cronologia {
-            padding: 18px 20px; /* Aumentado de 16px 18px */
-          }
-
-          .titulo_cronologia {
-            font-size: 1.45rem; /* Aumentado de 1.22rem */
-          }
-
-          .subtitulo_cronologia {
-            font-size: 1.2rem; /* Aumentado de 1.05rem */
-          }
-
-          .chip {
-            font-size: 1.1rem; /* Aumentado de 1rem */
-            padding: 12px 16px; /* Aumentado de 10px 14px */
-          }
-
-          .boton {
-            padding: 18px 22px; /* Aumentado de 16px 20px */
-            font-size: 1.15rem; /* Aumentado de 1.08rem */
-            min-height: 60px; /* Aumentado de 56px */
-          }
-
-          .avatar {
-            max-width: 320px;
-          }
-
-          .barra_lateral {
-            padding: 18px; /* Aumentado de 16px */
-          }
-
-          .enlace_navegacion {
-            height: 74px; /* Aumentado de 64px */
-            width: 74px; /* Aumentado de 64px */
-            font-size: 32px; /* Aumentado de 28px */
-          }
-
-          .volver_arriba {
-            width: 60px; /* Aumentado de 58px */
-            height: 60px; /* Aumentado de 58px */
-            right: 16px;
-            bottom: 16px;
-          }
+          .volver_arriba { width: 50px; height: 50px; right: 12px; bottom: 12px; }
         }
       `);
       document.head.appendChild(nonCriticalCSS);
@@ -2233,6 +2005,5 @@
     } else {
       window.addEventListener('load', crearParticulas, { once: true });
     }
-  </script>
-</body>
+  </body>
 </html>
