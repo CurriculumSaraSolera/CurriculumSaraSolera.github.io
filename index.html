@@ -29,11 +29,22 @@
   <link rel="preconnect" href="https://media-mad2-1.cdn.whatsapp.net" crossorigin>
 
   <link rel="preload" as="image" href="https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103" fetchpriority="high">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap">
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap"></noscript>
+
+<!-- Font Awesome optimizado -->
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="https://media-mad2-1.cdn.whatsapp.net">
 
   <link rel="preload" href="script.js" as="script">
   
@@ -71,6 +82,7 @@
     /* Estilos base */
     body {
       font-family: Inter, system-ui, sans-serif;
+      font-display: swap;
       color: var(--text);
       background: radial-gradient(var(--spot-size) var(--spot-size) at var(--spot-x) var(--spot-y), rgba(255,255,255,var(--spot-intensity)), transparent 60%), 
                   radial-gradient(1200px 600px at 10% -10%, rgb(233 30 99 / .08), transparent 60%), 
@@ -1589,7 +1601,9 @@
           decoding="async"
           fetchpriority="high"
           loading="eager"
-          sizes="(max-width: 480px) 75vw, (max-width: 768px) 55vw, (max-width: 1200px) 40vw, 450px"
+          height="400"
+          width="400"
+          sizes="(max-width: 480px) 75vw, (max-width: 768px) 55vw, (max-width: 1200px) 40vw, 380px"
           srcset="
             https://media-mad2-1.cdn.whatsapp.net/v/t61.24694-24/468806260_1235743377511816_5869147079486240103_n.jpg?ccb=11-4&oh=01_Q5Aa2wEqw7P0wR8kOL121Q2IGVDaQMND-B9VXDarNqb_BHHt9w&oe=69050D82&_nc_sid=5e03e0&_nc_cat=103 400w
           "
@@ -1963,16 +1977,20 @@
 
     // Caché de posiciones de secciones
     function cacheSectionPositions(){
-      sectionPositions = new Map();
-      secciones.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        sectionPositions.set(section.id, {
-          top: rect.top + window.pageYOffset,
-          height: rect.height,
-          middle: rect.top + window.pageYOffset + rect.height / 2
-        });
+  if (sectionPositions && sectionPositions.size > 0) return;
+  
+  requestAnimationFrame(() => {
+    sectionPositions = new Map();
+    secciones.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      sectionPositions.set(section.id, {
+        top: rect.top + window.pageYOffset,
+        height: rect.height,
+        middle: rect.top + window.pageYOffset + rect.height / 2
       });
-    }
+    });
+  });
+}
 
     window.addEventListener('load', () => {
       requestAnimationFrame(() => {
